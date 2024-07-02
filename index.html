@@ -33,38 +33,50 @@
   border-radius: 50%;
   cursor: none;
   /*Set the size of the magnifier glass:*/
-  width: 300px;
-  height: 300px;
+  width:  500px;
+  height: 500px;
 }
+
+.color-purple {
+  background-color:#a56ca7
+}
+
 
 
 
 </style>
 
 <script type="text/javascript">
-    function getItem(itemNNN) {
-      console.log("GET: " + itemNNN);
 
+    /* ---------------------------------------------------------------------------------------------------- */
+    function getItem(itemSetNN) {   /* FROM BUTTON LIST */
+    /* ---------------------------------------------------------------------------------------------------- */
+    /*
+       List of buttons for each map media set shows the photo and the first video in each set if video was split (a b c...) because 
+       GitHub max size limit. The selected shows users the Title, Photo, and video. Var itemSetNN is passed from the HTML DIV container
+       with the button list.
+    */ 
 
-switch(itemNNN) {
-  case '01': nVideoNxt = '1 - Love'   ;      itemImageJpg = '01';        itemVideoMp4 = '01'; console.log("SETx 1");    break;
-  case '02': nVideoNxt = '2 - Museum' ;      itemImageJpg = '02';        itemVideoMp4 = '02'; console.log("SETx 2");    break;
-  case '02': nVideoNxt = '3 - George' ;      itemImageJpg = '03';        itemVideoMp4 = '03'; console.log("SETx 3");    break;
-  case '03': nVideoNxt = '4 - Rocky'  ;      itemImageJpg = '04';        itemVideoMp4 = '04'; console.log("SETx 4");    break;
-  case '04': nVideoNxt = '5 - Rocky'  ;      itemImageJpg = '05';        itemVideoMp4 = '05'; console.log("SETx 5");    break;
-  case '06': nVideoNxt = '6 - Rocky'  ;      itemImageJpg = '06';        itemVideoMp4 = '06'; console.log("SETx 6");    break;
-  case '07': nVideoNxt = '7 - Bell'   ;      itemImageJpg = '07';        itemVideoMp4 = '07'; console.log("SETx 7");    break;
-  case '08': nVideoNxt = '8 - Market' ;      itemImageJpg = '08';        itemVideoMp4 = '08'; console.log("SETx 8");    break;
-  default:  console.log("SET NONEx");
-}
+      console.log("GET: " + itemSetNN);
 
-    document.getElementById("vidNbr").innerText = nVideoNxt;
-    document.getElementById("photo1").src="imagesCindy/" + itemImageJpg + ".jpg"; 
-    document.getElementById("video1").src="videoCindy/"  + itemVideoMp4 + ".mp4"; 
-    video = document.getElementById("video1");
-    video.currentTime = 0;
-    video.play();
-
+      switch(itemSetNN) {
+      case '01': nVideoNxt = '1a - Love'   ;      itemImageJpg = '01';        itemVideoMp4 = '01a' ; console.log("Button Map Media Key set to: 1a");   break;
+      case '02': nVideoNxt = '2a - Museum' ;      itemImageJpg = '02';        itemVideoMp4 = '02a' ; console.log("Button Map Media Key set to: 2a");   break;
+      case '02': nVideoNxt = '3a - George' ;      itemImageJpg = '03';        itemVideoMp4 = '03a' ; console.log("Button Map Media Key set to: 3");    break;
+      case '03': nVideoNxt = '4 - Rocky'   ;      itemImageJpg = '04';        itemVideoMp4 = '04'  ; console.log("Button Map Media Key set to: 4");    break;
+      case '04': nVideoNxt = '5 - Rocky'   ;      itemImageJpg = '05';        itemVideoMp4 = '05'  ; console.log("Button Map Media Key set to: 5");    break;
+      case '06': nVideoNxt = '6 - Rocky'   ;      itemImageJpg = '06';        itemVideoMp4 = '06'  ; console.log("Button Map Media Key set to: 6");    break;
+      case '07': nVideoNxt = '7a - Bell'   ;      itemImageJpg = '07';        itemVideoMp4 = '07a' ; console.log("Button Map Media Key set to: 7");    break;
+      case '08': nVideoNxt = '8a - Market' ;      itemImageJpg = '08';        itemVideoMp4 = '08a' ; console.log("Button Map Media Key set to: 8");    break;
+      default:  console.log("Button Map Media Key is not availible.");
+      }
+ 
+      document.getElementById("vidNbr").innerText = nVideoNxt;
+      document.getElementById("photo1").src="imagesCindy/" + itemImageJpg + ".jpg"; 
+      document.getElementById("video1").src="videoCindy/"  + itemVideoMp4 + ".mp4"; 
+      video = document.getElementById("video1");
+      video.currentTime = 0;
+      video.play();
 
     } 
 </script>
@@ -174,99 +186,111 @@ switch(itemNNN) {
 <body class="hm-gradient" style="background-color:#a56ca7">
 
 
-<main>
+<!-- TOP ------------------------------------------------------------------------------------------------ -->
+<main>   
 
+<!-- PW ------------------------------------------------------------------------------------------------- -->
 <div class="container" style="margin-top: 0px; visibility: hidden;">
     <input type="button" value="You Know:" onclick="magic1(document.getElementById('myInput').value)" /> 
     <input type="text" id="myInput" style="font-size: 18pt; height: 40px; width:280px; border: 1px solid black;" />
 </div>
 
-<h2 id="head1" class="text-center" style="margin-bottom: 0px ">
-   TEST: CODA 2024 International Convention
-</h2>
+<!-- HEADING -------------------------------------------------------------------------------------------- -->
 
+<div id="head1" class="text-center color-purple w-100 fs-5" style="margin-bottom: 0px ">
+    <big><strong>TEST: CODA 2024 International Convention</strong></big>
+</div>
 
-
+<!-- PAGE ----------------------------------------------------------------------------------------------- -->
 <div class="col-xs-12 col-sm-12">
    <div>
    <div class="card card-body">   
    <div class="row mr-auto                 container-fluid">
 
+
+       <!-- COLUMN 1 ------------------------------------------------------------------------------------------- -->
+
+       <!-- VIDEO ---------------------------------------------------------------------------------------------- -->
        <div id="vvv1"         class="vvv1 col-xs-8 col-sm-8 col-lg-8 col-xl-8 container-fluid" style="border:5px solid #000000; padding:0px; margin:0px">
+           <h2    id="vidNbr" class="container-fluid text-center fs-5 " style="padding:0px; margin:0px; background-color:#fadadd" >1a - Love<h2>
            <video id="video1" class="container-fluid"  src= "videoCindy/01.mp4" controls onended="nextVideo();" style= "padding:0px; margin:0px" > </video> 
-           <h2 id="vidNbr" class=""container-fluid text-center" >1 - Love<h2>
        </div>
 
+       <!-- COLUMN 2 ------------------------------------------------------------------------------------------- -->
        <div id="photodiv1"  class="photo1 col-xs-4 col-sm-4 col-lg-4 col-xl-4 container-fluid" style="padding:0px; margin:0px">
 
-          <img id="photo1" class="w-100 container-fluid" src="imagesCindy/01.jpg" alt="Photo1" style="border:5px solid #000000;" > 
+          <!-- MAP PLAN ---------------------------------------------------------------------------------------- -->
+          <div class="list-group d-flex flex-row flex-wrap" style="border:5px solid #000000; padding:0px; margin:0px">
+             <img id="map1"  class="d-block w-100" src="imagesCindy/20.jpg" alt="Map1" onclick="getMouseXY('map')" style="border:5px solid #000000;    > 
+          </div>
+
+          <!-- KEY ------------------------------------------------------------------------------------------------ -->
+          <div class="list-group d-flex flex-row flex-wrap" style="border:5px solid #000000; padding:0px; margin:0px">
+               <a onclick="actGo()"        href="#alerts" class="list-group-item w-50 list-group-item-action fs-5 text-center">PLAY</a>
+               <a onclick="actStop()"      href="#alerts" class="list-group-item w-50 list-group-item-action fs-5 text-center">PAUSE</a>
+               <a href="#alerts" class="list-group-item w-100 list-group-item-action fs-5 text-center" style="background-color:#feeb10" >Map Media Key</a>
+               <a onclick="getItem('01')"  href="#alerts" class="list-group-item w-50 list-group-item-action fs-5">1a - Love</a>
+               <a onclick="getItem('02')"  href="#alerts" class="list-group-item w-50 list-group-item-action fs-5">2a - Museum</a>
+               <a onclick="getItem('03')"  href="#alerts" class="list-group-item w-50 list-group-item-action fs-5">3a - George</a>
+               <a onclick="getItem('04')"  href="#alerts" class="list-group-item w-50 list-group-item-action fs-5">4 - Rocky</a>
+               <a onclick="getItem('05')"  href="#alerts" class="list-group-item w-50 list-group-item-action fs-5">5 - Rocky</a>
+               <a onclick="getItem('06')"  href="#alerts" class="list-group-item w-50 list-group-item-action fs-5">6 - Rocky</a>
+               <a onclick="getItem('07')"  href="#alerts" class="list-group-item w-50 list-group-item-action fs-5">7a - Bell</a>
+               <a onclick="getItem('08')"  href="#alerts" class="list-group-item w-50 list-group-item-action fs-5">8a - Market</a>
+          </div>
+
+          <!-- PHOTOT --------------------------------------------------------------------------------------------- -->
+          <div class="list-group d-flex flex-row flex-wrap" style="border:5px solid #000000; padding:0px; margin:0px">
+             <img id="photo1" class="w-100 container-fluid" src="imagesCindy/01.jpg" alt="Photo1" style="border:5px solid #000000;" > 
+          </div>
+
+          <!-- MAP GLASS MANUAL ---------------------------------------------------------------------------------- -->
+          <div class="list-group d-flex flex-row flex-wrap" style="border:5px solid #000000; padding:0px; margin:0px">
+          <div class="img-magnifier-container" style="border:5px solid #000000; padding:0px; margin:0px" >
+             <img id="myimageMAN" class="d-block w-100" src="imagesCindy/20.jpg" alt="Map1"  >
+          </div>
+          </div>
 
 
-<ul>
-  <li onclick="getItem('08')" class="fs-5">Coffee</li>
-  <li onclick="getItem('01')" class="fs-5">Tea</li>
-  <li onclick="getItem('07')" class="fs-5">Milk</li>
-  <li onclick="getItem('03')" class="fs-5">George</li>
-</ul> 
-
-
-<div class="list-group d-flex flex-row flex-wrap">
-                <a onclick="getItem('02')"  href="#alerts" class="list-group-item w-50 list-group-item-action fs-5">
-                Alerts
-              </a>
-                <a onclick="getItem('08')"  href="#alerts" class="list-group-item w-50 list-group-item-action fs-5">
-                Badges
-              </a>
-                <a href="#alerts" class="list-group-item w-50 list-group-item-action">
-                Breadcrumbs
-              </a>
-                <a href="#alerts" class="list-group-item w-50 list-group-item-action">
-                Buttons
-              </a>
-                <a href="#alerts" class="list-group-item w-50 list-group-item-action">
-                Cards
-              </a>
-                <a href="#alerts" class="list-group-item w-50 list-group-item-action">
-                Modals
-              </a>
-                <a href="#alerts" class="list-group-item w-50 list-group-item-action">
-                Lists
-              </a>
-                <a href="#alerts" class="list-group-item w-50 list-group-item-action">
-                Tabs
-              </a>
-            </div>
- 
-          <label class="w-50 container-fluid"  style="border:5px solid #000000; background-color:#feeb10" onclick="getItem('01')">1 - Love</label>
-          <label class="w-50 container-fluid"  style="border:5px solid #000000;" onclick="getItem('02')">2 - Museum</label>
-          <label class="w-100 container-fluid"  style="border:5px solid #000000;" onclick="getItem('03')">3 - George</label>
-          <label class="w-100 container-fluid"  style="border:5px solid #000000;" onclick="getItem('04')">4 - Rocky</label>
-          <label class="w-100 container-fluid"  style="border:5px solid #000000;" onclick="getItem('05')">5 - Rocky</label>
-          <label class="w-100 container-fluid"  style="border:5px solid #000000;" onclick="getItem('06')">6 - Rocky</label>
-          <label class="w-100 container-fluid"  style="border:5px solid #000000;" onclick="getItem('07')">7 - Bell</label>
-          <label class="w-100 container-fluid"  style="border:5px solid #000000;" onclick="getItem('08')">8 - Market</label>
-
-
-          <img id="map1"  class="d-block w-100" src="imagesCindy/20.jpg" alt="Map1" onclick="getMouseXY('map')" style="border:5px solid #000000;    > 
-
+       <!-- --------------------------------------------------------------------------------------------- -->
        </div>
 
-       <div id="mapImagex" class="map1x d-block w-100 col-xs-4 col-sm-4 col-lg-4 col-xl-4 container-fluid" style="padding:0px; margin:0px">  
-           <div class="img-magnifier-container container-fluid" style="padding:0px; margin:0px" > 
-           <div class="img-magnifier-glass" id="magIDx" style="background-image: imagesCindy/20.jpg background-repeat: no-repeat; background-size: 4344px 2928px; left: 96px; top: -7.5625px; background-position: -837px -422.75px;"></div>
-           <img id="map1x" class="d-block w-100 container-fluid" style="border:5px solid #000000;" src="imagesCindy/20.jpg" alt="Map1"> 
-       </div>
 
-       <div class="img-magnifier-container" style="border:5px solid #000000; padding:0px; margin:0px" >
-          <img id="myimage" class="d-block w-100" src="imagesCindy/20.jpg" alt="Map1"  >
-       </div>
 
+<!-- PAGE (END) ------------------------------------------------------------------------------------------- -->
    </div></div></div>
-</div>
+   </div>
 
+   <div class="row mr-auto                 container-fluid">
+
+   <div     class="list-group d-flex flex-row flex-wrap              color-purple" style="padding:0px; margin:0px">
+                      <a class="list-group-item w-100 list-group-item-action              fs-5 color-purple">
+
+             ©CODA.ORG, ALL RIGHTS RESERVED. </a>
+
+                      <a class="list-group-item w-50  list-group-item-action fs-5 color-purple" style="background-color:#a56ca7" target="_blank" rel="noopener" href="https://coda.org/default/assets/File/CoDAFairUsePolicy-final.pdf">
+
+             Fair Use </a>
+
+                      <a class="list-group-item w-50  list-group-item-action fs-5 color-purple" target="_blank" href="https://coda.org/privacy/">
+
+             Privacy </a>
+
+                      <a class="list-group-item w-50  list-group-item-action fs-5 color-purple" href="mailto:JohnnyM78.NJ@gmail.com">    
+        
+                      <span><img decoding="async" src="/wp-content/uploads/2018/10/mail_icon.png" alt=""></span>
+
+             Website designed by: John M and Cindy</a>
+
+                      <a class="list-group-item w-50  list-group-item-action fs-5 color-purple" target="_blank" rel="noopener" href="https://coda.org/meeting/promises-for-recovery/">
+ 
+             with special thanks to CODA meeting: Promises For Recovery, Pine Beach New Jersey</a>
+
+   </div>
+          
+   </div>
 
 </main>
-
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
@@ -275,54 +299,39 @@ switch(itemNNN) {
 
 <script type="text/javascript">
 
+    /* From VIDEO ON ENDED -------------------------------------------------------------------------------- */
+
     /* ---------------------------------------------------------------------------------------------------- */
     function nextVideo() {   /* ### PLAY LIST VIDEOS                                                        */ 
     /* ---------------------------------------------------------------------------------------------------- */
+    /* 
+       Each video plays in order When a video is done (at the end), the next video automatically plays. This 
+       is done with HTML Video tag onended() function and the Title of the video.  
+    */ 
    
     var nVideo = document.getElementById("vidNbr").innerText;  console.log('ON:' + nVideo);
 
-    var itemImageJpg = '01';    var itemVideoMp4 = '01';  var nVideoNxt = 'NONE';
+    var itemImageJpg = '01';    var itemVideoMp4 = '01a';  var nVideoNxt = 'NONE';
 
-/* https://developer.mozilla.org/en-US/docs/Web/Media/Audio_and_video_delivery/Video_player_styling_basics 
-https://www.codeply.com/go/RWfujgLs1n/bootstrap-4-_-2-column-list-group
-*/
- 
-/*
-    if        ( nVideo = '1 - Love'   ) {                     nVideoNxt = '2 - Museum' ;      itemImageJpg = '02';        itemVideoMp4 = '02'; console.log("SET 2");
-    } else if ( nVideo = '2 - Museum' ) {                     nVideoNxt = '3 - George' ;      itemImageJpg = '03';        itemVideoMp4 = '03'; console.log("SET 3");
-    } else if ( nVideo = '3 - George' ) {                     nVideoNxt = '4 - Rocky'  ;      itemImageJpg = '04';        itemVideoMp4 = '04'; console.log("SET 4");
-    } else if ( nVideo = '4 - Rocky'  ) {                     nVideoNxt = '5 - Rocky'  ;      itemImageJpg = '05';        itemVideoMp4 = '05'; console.log("SET 5");
-    } else if ( nVideo = '5 - Rocky'  ) {                     nVideoNxt = '6 - Rocky'  ;      itemImageJpg = '06';        itemVideoMp4 = '06'; console.log("SET 6");
-    } else if ( nVideo = '6 - Rocky'  ) {                     nVideoNxt = '7 - Bell'   ;      itemImageJpg = '07';        itemVideoMp4 = '07'; console.log("SET 7");
-    } else if ( nVideo = '7 - Bell'   ) {                     nVideoNxt = '8 - Market' ;      itemImageJpg = '08';        itemVideoMp4 = '08'; console.log("SET 8");
-    } else if ( nVideo = '8 - Market' ) {                     nVideoNxt = '1 - Love'   ;      itemImageJpg = '01';        itemVideoMp4 = '01'; console.log("SET 9");
-    } else { 
-       console.log('NONE');                                   nVideoNxt = '1 - Love'   ;  console.log("SET 1 NONE");
-    };
-*/
- 
-
-switch(nVideo ) {
-  case '1 - Love':
-                      nVideoNxt = '2 - Museum' ;      itemImageJpg = '02';        itemVideoMp4 = '02'; console.log("SET 2");    break;
-  case '2 - Museum':
-                      nVideoNxt = '3 - George' ;      itemImageJpg = '03';        itemVideoMp4 = '03'; console.log("SET 3");    break;
-  case '3 - George':
-                      nVideoNxt = '4 - Rocky'  ;      itemImageJpg = '04';        itemVideoMp4 = '04'; console.log("SET 4");    break;
-  case '4 - Rocky': 
-                      nVideoNxt = '5 - Rocky'  ;      itemImageJpg = '05';        itemVideoMp4 = '05'; console.log("SET 5");    break;
-  case '5 - Rocky': 
-                      nVideoNxt = '6 - Rocky'  ;      itemImageJpg = '06';        itemVideoMp4 = '06'; console.log("SET 6");    break;
-  case '6 - Rocky': 
-                      nVideoNxt = '7 - Bell'   ;      itemImageJpg = '07';        itemVideoMp4 = '07'; console.log("SET 7");    break;
-  case '7 - Bell':   
-                      nVideoNxt = '8 - Market' ;      itemImageJpg = '08';        itemVideoMp4 = '08'; console.log("SET 8");    break;
-  case '8 - Market': 
-                      nVideoNxt = '1 - Love'   ;      itemImageJpg = '01';        itemVideoMp4 = '01'; console.log("SET 9");    break;
- default:
-    console.log("SET NONE");
-}
-
+    switch(nVideo ) {
+    case '1a - Love':   nVideoNxt = '1b - Love'    ;    itemImageJpg = '01';        itemVideoMp4 = '01b'; console.log("Next Video starting is 1b");   break;
+    case '1b - Love':   nVideoNxt = '1c - Love'    ;    itemImageJpg = '01';        itemVideoMp4 = '01c'; console.log("Next Video starting is 1c");   break;
+    case '1c - Love':   nVideoNxt = '2a - Museum'  ;    itemImageJpg = '02';        itemVideoMp4 = '02a'; console.log("Next Video starting is 2a");   break;
+    case '2a - Museum': nVideoNxt = '2b - Museum'  ;    itemImageJpg = '02';        itemVideoMp4 = '02b'; console.log("Next Video starting is 2b");   break;
+    case '2b - Museum': nVideoNxt = '2c - Museum'  ;    itemImageJpg = '02';        itemVideoMp4 = '02c'; console.log("Next Video starting is 2c");   break;
+    case '2c - Museum': nVideoNxt = '3a - George'  ;    itemImageJpg = '03';        itemVideoMp4 = '03a'; console.log("Next Video starting is 3a");   break;
+    case '3a - George': nVideoNxt = '3b - George'  ;    itemImageJpg = '03';        itemVideoMp4 = '03b'; console.log("Next Video starting is 3b");   break;
+    case '3b - George': nVideoNxt = '3c - George'  ;    itemImageJpg = '03';        itemVideoMp4 = '03c'; console.log("Next Video starting is 3c");   break;
+    case '3c - George': nVideoNxt = '4 - Rocky'    ;    itemImageJpg = '04';        itemVideoMp4 = '04' ; console.log("Next Video starting is 4") ;   break;
+    case '4 - Rocky':   nVideoNxt = '5 - Rocky'    ;    itemImageJpg = '05';        itemVideoMp4 = '05' ; console.log("Next Video starting is 5") ;   break;
+    case '5 - Rocky':   nVideoNxt = '6 - Rocky'    ;    itemImageJpg = '06';        itemVideoMp4 = '06' ; console.log("Next Video starting is 6") ;   break;
+    case '6 - Rocky':   nVideoNxt = '7a - Bell'    ;    itemImageJpg = '07';        itemVideoMp4 = '07a'; console.log("Next Video starting is 7a");   break;
+    case '7a - Bell':   nVideoNxt = '7b - Bell'    ;    itemImageJpg = '07';        itemVideoMp4 = '07b'; console.log("Next Video starting is 7b");   break;
+    case '7b - Bell':   nVideoNxt = '8a - Market'  ;    itemImageJpg = '08';        itemVideoMp4 = '08a'; console.log("Next Video starting is 8a");   break;
+    case '8a - Market': nVideoNxt = '8b - Market'  ;    itemImageJpg = '08';        itemVideoMp4 = '08b'; console.log("Next Video starting is 8b");   break;
+    case '8b - Market': nVideoNxt = '1a - Love'    ;    itemImageJpg = '01';        itemVideoMp4 = '01a'; console.log("Next Video starting is 1a");   break;
+    default:  console.log("Next Video is not availible.");
+    }
 
     console.log('NXT:' +  itemImageJpg + ' ' + itemVideoMp4 + ' ON: ' + nVideo + ' NEXT: ' + nVideoNxt  );
       
@@ -333,31 +342,7 @@ switch(nVideo ) {
     video.currentTime = 0;
     video.play();
 
-/*
-
-1 - Love
-2 - Museum
-3 - George
-4 - Rocky
-5 - Rocky
-6 - Rocky
-7 - Bell
-8 - Market
-
-*/
-
     }
-
-</script>
-
-
-
-
-<script type="text/javascript">
-
-function myFunction(id) {
-alert("HI");
-}
 
 </script>
 
@@ -370,7 +355,6 @@ function magnify(imgID, zoom) {
   /* Create magnifier glass: */
   glass = document.createElement("DIV");
   glass.setAttribute("class", "img-magnifier-glass");
-
 
   var arg1 = '"glass"';
   glass.setAttribute("id", "magID");
@@ -387,34 +371,28 @@ function magnify(imgID, zoom) {
   w = glass.offsetWidth / 2;
   h = glass.offsetHeight / 2;
 
-  /* Execute a function when someone moves the magnifier glass over the image: */
+  /*
   glass.addEventListener("mousemove", moveMagnifier);
   img.addEventListener("mousemove", moveMagnifier);
-
-  /*and also for touch screens:*/
   glass.addEventListener("touchmove", moveMagnifier);
   img.addEventListener("touchmove", moveMagnifier);
+  */
+
   function moveMagnifier(e) {
+    /*
     var pos, x, y;
-    /* Prevent any other actions that may occur when moving over the image */
     e.preventDefault();
-    /* Get the cursor's x and y positions: */
     pos = getCursorPos(e);
     x = pos.x;
     y = pos.y;
-    /* Prevent the magnifier glass from being positioned outside the image: */
     if (x > img.width - (w / zoom)) {x = img.width - (w / zoom);}
     if (x < w / zoom) {x = w / zoom;}
     if (y > img.height - (h / zoom)) {y = img.height - (h / zoom);}
     if (y < h / zoom) {y = h / zoom;}
-    /* Set the position of the magnifier glass: */
     glass.style.left = (x - w) + "px";
     glass.style.top = (y - h) + "px";
-    /* Display what the magnifier glass "sees": */
     glass.style.backgroundPosition = "-" + ((x * zoom) - w + bw) + "px -" + ((y * zoom) - h + bw) + "px";
-
-    
-
+    */
   }
 
   function getCursorPos(e) {
@@ -436,11 +414,84 @@ function magnify(imgID, zoom) {
 
 <script>
 /* Execute the magnify function: */
-magnify("myimage", 4);
+magnify("myimageMAN", 4);
 /* Specify the id of the image, and the strength of the magnifier glass: */
 </script>
 
+<script type="text/javascript"> /* Coords Resize function -------------------------------------*/
+function myButtonCoordFunction() {
 
+$( document ).ready(function() {
+
+  var image  =  $('#myimageMAN');
+  var imageW = `${image.width()}`
+  var imageH = `${image.height()}`
+
+  /* ------------------------------------------------------ */
+  /* Calc Coord boxes size positions depending on view port */
+  /* ------------------------------------------------------ */
+
+  var nTotalW    = Math.abs(parseInt(imageW));
+  var nTotalH    = Math.abs(parseInt(imageH));
+
+  var nFix = Math.round(nTotalW / 100);
+
+  var newWH = '600px';
+  switch(nFix) {
+    case 1: newWH = '100px';  break;
+    case 2: newWH = '200px';  break;
+    case 3: newWH = '300px';  break;
+    case 4: newWH = '400px';  break;
+    default:              newWH = '500px'; 
+  }
+
+  console.log('MAP: ' + nTotalW + ' Fix: ' + nFix + ' NewW ' + newWH);
+
+  var MagMAN = document.getElementById("magID");
+
+  MagMAN.style.width  = newWH; 
+  MagMAN.style.height = newWH;
+
+
+
+})
+
+}
+
+</script>
+
+<script type="text/javascript">
+
+    function actStop() {
+    var vv = document.getElementById("video1");
+    vv.pause();
+    console.log("STOP");
+    }
+
+    function actGo() {
+    var vv = document.getElementById("video1");
+    vv.play();
+    console.log("GO");
+    }
+
+
+</script>
+
+
+<script type="text/javascript"> /* Resize Window ------------------------------------------------*/
+
+$( document ).ready(function() {
+
+var resizeTimer;
+$(window).on('resize', function(e) {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(function() {
+    myButtonCoordFunction();
+  }, 250);
+});
+
+})
+</script>
 
 
 
