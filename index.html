@@ -1,50 +1,50 @@
-<!DOCTYPE html><html lang="en">
+<html lang="en">
 <head>
-   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-   
-   <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" >
-   <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css" >
-   <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.1/css/mdb.min.css" >
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <style>
+    .collapse.collapsed:before {  display: none; }
+    .collapse:before           {  display: none; }
+        .customClassForDropDown
+        {
+           height: 50vh;
+           overflow-y: auto;
+        }
 
 
-<style>
-.fill {object-fit: fill;}
-.contain {object-fit: contain;}
-.cover {object-fit: cover;}
-.scale-down {object-fit: scale-down;}
-.none {object-fit: none;}
 
-.carousel-control-next,
-.carousel-control-prev /*, .carousel-indicators */ {
+     .fill {object-fit: fill;}
+     .contain {object-fit: contain;}
+     .cover {object-fit: cover;}
+     .scale-down {object-fit: scale-down;}
+     .none {object-fit: none;}
+
+     .carousel-control-next,
+     .carousel-control-prev /*, .carousel-indicators */ {
     filter: invert(100%);
-}
+     }
 
 
-* {box-sizing: border-box;}
+     * {box-sizing: border-box;}
 
-.img-magnifier-container {
-  position: relative;
-}
+     .img-magnifier-container {
+       position: relative;
+     }
 
-.img-magnifier-glass {
-  position: absolute;
-  border: 3px solid #000;
-  border-radius: 50%;
-  cursor: none;
-  /*Set the size of the magnifier glass:*/
-  width:  500px;
-  height: 500px;
-}
+     .img-magnifier-glass {
+       position: absolute;
+       border: 3px solid #000;
+       border-radius: 50%;
+       cursor: none;
+       /*Set the size of the magnifier glass:*/
+       width:  100px;
+       height: 100px;
+     }
 
-.color-purple {
-  background-color:#a56ca7
-}
-
-
-
-
-</style>
+ </style>
 
 <script type="text/javascript">
 
@@ -72,14 +72,24 @@
       }
  
       document.getElementById("vidNbr").innerText = nVideoNxt;
+      document.getElementById("vidNbrG").innerText = nVideoNxt;
+
+      document.getElementById("vidNbrP").innerText = nVideoNxt;
       document.getElementById("photo1").src="imagesCindy/" + itemImageJpg + ".jpg"; 
       document.getElementById("video1").src="videoCindy/"  + itemVideoMp4 + ".mp4"; 
+
+      document.getElementById("video1").style.minHeight = "100px";
+      document.getElementById("video1").style.width     = "700px";
+
       video = document.getElementById("video1");
       video.currentTime = 0;
       video.play();
+ 
 
     } 
 </script>
+
+
 
 
 <script type="text/javascript">
@@ -183,119 +193,165 @@
 
 </head>
 
-<body class="hm-gradient" style="background-color:#a56ca7">
+
+
+
+
+
+
+
+
+
 
 
 <!-- TOP ------------------------------------------------------------------------------------------------ -->
-<main>   
 
-<!-- PW ------------------------------------------------------------------------------------------------- -->
-<div class="container" style="margin-top: 0px; visibility: hidden;">
-    <input type="button" value="You Know:" onclick="magic1(document.getElementById('myInput').value)" /> 
-    <input type="text" id="myInput" style="font-size: 18pt; height: 40px; width:280px; border: 1px solid black;" />
+<body style="background-color:#a56ca7">
+
+
+<h1 class="text-center">TEST: CODA 2025 International Convention</h1>
+
+<!------------------------------------------------------------------------------------------------------- -->
+<! ### BUTTONS -->
+<!------------------------------------------------------------------------------------------------------- -->
+
+<div class="card card-body" style="background-color:#feeb10">
+
+      <div class="dropdown">
+
+      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">   
+      Filter
+      </button>
+
+      <span class="text-nowrap bd-highlight font-weight-bolder">
+      Map Media Key:
+      </span>
+
+      <button type= "button" class="btn border border-light btn-primary btn-all" onclick="actGo()  ;" >Play</button>
+      <button type= "button" class="btn border border-light btn-primary btn-all" onclick="actStop();" >Pause</button>
+
+       <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('01');"> 1a - Love</button>
+       <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('02');"> 2a - Museum</button>
+       <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('03');"> 3a - George</button>
+       <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('04');"> 4 - Rocky</button>
+       <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('05');"> 5 - Rocky</button>
+       <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('06');"> 6 - Rocky</button>
+       <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('07');"> 7a - Bell</button>
+       <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('08');"> 8a - Market</button>
+
+<!------------------------------------------------------------------------------------------------------- -->
+<div class="dropdown-menu customClassForDropDown" aria-labelledby="dropdownMenuButton">
+
+<div class="col-xs-12 col-sm-12 col-lg-12 col-xl-12">
+
+   <div class="card card-body" style="background-color:#fadadd">   
+   <div class="row mr-auto                 container-fluid">
+
+       <div class="col-xs-5 col-sm-3 col-lg-2 col-xl-1  container-fluid text-nowrap bd-highlight font-weight-bolder">
+       Subjects:
+       </div>
+
+       <div class="col-xs-7 col-sm-9 col-lg-10 col-xl-11 container-fluid">
+       <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('01');"> 1a - Love</button>
+       <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('02');"> 2a - Museum</button>
+       <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('03');"> 3a - George</button>
+       <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('04');"> 4 - Rocky</button>
+       <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('05');"> 5 - Rocky</button>
+       <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('06');"> 6 - Rocky</button>
+       <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('07');"> 7a - Bell</button>
+       <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('08');"> 8a - Market</button>
+       </div>
+
+   </div></div>
 </div>
+<!------------------------------------------------------------------------------------------------------- -->
 
-<!-- HEADING -------------------------------------------------------------------------------------------- -->
-
-<div id="head1" class="text-center color-purple w-100 fs-5" style="margin-bottom: 0px ">
-    <big><strong>TEST: CODA 2024 International Convention</strong></big>
 </div>
+</div>
+</div></div></div>
 
-<!-- PAGE ----------------------------------------------------------------------------------------------- -->
-<div class="col-xs-12 col-sm-12">
-   <div>
+<!------------------------------------------------------------------------------------------------------- -->
+<! ### ITEM MAP GLASS MANUAL d-block w-100 width:700px; -->
+<!------------------------------------------------------------------------------------------------------- -->
+<div class="col-xs-12 col-sm-12 col-lg-12 col-xl-12">
+   <div id="multiCollapseExample000038" class="cc" >
    <div class="card card-body">   
    <div class="row mr-auto                 container-fluid">
-
-
-       <!-- COLUMN 1 ------------------------------------------------------------------------------------------- -->
-
-       <!-- VIDEO ---------------------------------------------------------------------------------------------- -->
-       <div id="vvv1"         class="vvv1 col-xs-8 col-sm-8 col-lg-8 col-xl-8 container-fluid" style="border:5px solid #000000; padding:0px; margin:0px">
-           <h2    id="vidNbr" class="container-fluid text-center fs-5 " style="padding:0px; margin:0px; background-color:#fadadd" >1a - Love<h2>
-           <video id="video1" class="container-fluid"  src= "videoCindy/01.mp4" controls onended="nextVideo();" style= "padding:0px; margin:0px" > </video> 
-       </div>
-
-       <!-- COLUMN 2 ------------------------------------------------------------------------------------------- -->
-       <div id="photodiv1"  class="photo1 col-xs-4 col-sm-4 col-lg-4 col-xl-4 container-fluid" style="padding:0px; margin:0px">
-
-          <!-- MAP PLAN ---------------------------------------------------------------------------------------- -->
-          <div class="list-group d-flex flex-row flex-wrap" style="border:5px solid #000000; padding:0px; margin:0px">
-             <img id="map1"  class="d-block w-100" src="imagesCindy/20.jpg" alt="Map1" onclick="getMouseXY('map')" style="border:5px solid #000000;    > 
-          </div>
-
-          <!-- KEY ------------------------------------------------------------------------------------------------ -->
-          <div class="list-group d-flex flex-row flex-wrap" style="border:5px solid #000000; padding:0px; margin:0px">
-               <a onclick="actGo()"        href="#alerts" class="list-group-item w-50 list-group-item-action fs-5 text-center">PLAY</a>
-               <a onclick="actStop()"      href="#alerts" class="list-group-item w-50 list-group-item-action fs-5 text-center">PAUSE</a>
-               <a href="#alerts" class="list-group-item w-100 list-group-item-action fs-5 text-center" style="background-color:#feeb10" >Map Media Key</a>
-               <a onclick="getItem('01')"  href="#alerts" class="list-group-item w-50 list-group-item-action fs-5">1a - Love</a>
-               <a onclick="getItem('02')"  href="#alerts" class="list-group-item w-50 list-group-item-action fs-5">2a - Museum</a>
-               <a onclick="getItem('03')"  href="#alerts" class="list-group-item w-50 list-group-item-action fs-5">3a - George</a>
-               <a onclick="getItem('04')"  href="#alerts" class="list-group-item w-50 list-group-item-action fs-5">4 - Rocky</a>
-               <a onclick="getItem('05')"  href="#alerts" class="list-group-item w-50 list-group-item-action fs-5">5 - Rocky</a>
-               <a onclick="getItem('06')"  href="#alerts" class="list-group-item w-50 list-group-item-action fs-5">6 - Rocky</a>
-               <a onclick="getItem('07')"  href="#alerts" class="list-group-item w-50 list-group-item-action fs-5">7a - Bell</a>
-               <a onclick="getItem('08')"  href="#alerts" class="list-group-item w-50 list-group-item-action fs-5">8a - Market</a>
-          </div>
-
-          <!-- PHOTOT --------------------------------------------------------------------------------------------- -->
-          <div class="list-group d-flex flex-row flex-wrap" style="border:5px solid #000000; padding:0px; margin:0px">
-             <img id="photo1" class="w-100 container-fluid" src="imagesCindy/01.jpg" alt="Photo1" style="border:5px solid #000000;" > 
-          </div>
-
-          <!-- MAP GLASS MANUAL ---------------------------------------------------------------------------------- -->
-          <div class="list-group d-flex flex-row flex-wrap" style="border:5px solid #000000; padding:0px; margin:0px">
-          <div class="img-magnifier-container" style="border:5px solid #000000; padding:0px; margin:0px" >
-             <img id="myimageMAN" class="d-block w-100" src="imagesCindy/20.jpg" alt="Map1"  >
-          </div>
-          </div>
-
-
-       <!-- --------------------------------------------------------------------------------------------- -->
-       </div>
-
-
-
-<!-- PAGE (END) ------------------------------------------------------------------------------------------- -->
-   </div></div></div>
-   </div>
-
-   <div class="row mr-auto                 container-fluid">
-
-   <div     class="list-group d-flex flex-row flex-wrap              color-purple" style="padding:0px; margin:0px">
-                      <a class="list-group-item w-100 list-group-item-action              fs-5 color-purple">
-
-             ©CODA.ORG, ALL RIGHTS RESERVED. </a>
-
-                      <a class="list-group-item w-50  list-group-item-action fs-5 color-purple" style="background-color:#a56ca7" target="_blank" rel="noopener" href="https://coda.org/default/assets/File/CoDAFairUsePolicy-final.pdf">
-
-             Fair Use </a>
-
-                      <a class="list-group-item w-50  list-group-item-action fs-5 color-purple" target="_blank" href="https://coda.org/privacy/">
-
-             Privacy </a>
-
-                      <a class="list-group-item w-50  list-group-item-action fs-5 color-purple" href="mailto:JohnnyM78.NJ@gmail.com">    
-        
-                      <span><img decoding="async" src="/wp-content/uploads/2018/10/mail_icon.png" alt=""></span>
-
-             Website designed by: John M and Cindy</a>
-
-                      <a class="list-group-item w-50  list-group-item-action fs-5 color-purple" target="_blank" rel="noopener" href="https://coda.org/meeting/promises-for-recovery/">
  
-             with special thanks to CODA meeting: Promises For Recovery, Pine Beach New Jersey</a>
+       <div class="col-xs-3 col-sm-3 col-lg-3 col-xl-3 container-fluid"    style="                                 padding:0px; margin:0px; border:5px solid #000000;">
+           <h2    id="vidNbr" class="container-fluid text-center "         style="                                 padding:0px; margin:0px; background-color:#fadadd">1a - Love<h2>
 
-   </div>
-          
-   </div>
+           <div   id="vvv1"   class="vvv1 container-fluid pre-scrollable"  style="min-height: 390px;               padding:0px; margin:0px;">
+           <video id="video1" class="     container-fluid "                style="min-height: 100px; width=700px;  padding:0px; margin:0px"  src="videoCindy/01.mp4" controls onended="nextVideo();"> </video> 
+           </div>
 
-</main>
+       </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.1/js/mdb.min.js"></script>
+       <div class="mcol-xs-5 col-sm-5 col-lg-5 col-xl-5 container-fluid"    style="                                padding:0px; margin:0px; border:5px solid #000000;">
+           <h2  id="vidNbrG"    class="     container-fluid text-center"    style="                                padding:0px; margin:0px; background-color:#fadadd" >1a - Love<h2>
+
+           <div id="mmm2"       class="mmm2 container-fluid pre-scrollable" style="min-height: 390px;              padding:0px; margin:0px;">
+           <div class="img-magnifier-container"                             style="                                padding:0px; margin:0px;">
+           <img id="myimageMAN" class="container-fluid "                    style="min-height: 100px; width:700px; "                         src="imagesCindy/20.jpg" alt="Map1"  >
+           </div>                   
+           </div>
+
+       </div>
+
+       <div class="col-xs-4 col-sm-4 col-lg-4 col-xl-4 container-fluid"     style="                                 padding:0px; margin:0px; border:5px solid #000000;">
+           <h2  id="vidNbrP"   class="container-fluid text-center"          style="                                 padding:0px; margin:0px; background-color:#fadadd" >1a - Love<h2>
+
+           <div id="vvv2"      class="vvv2 container-fluid pre-scrollable"  style="min-height: 390px;               padding:0px; margin:0px">
+           <img id="photo1"    class="     container-fluid"                 style="min-height: 100px; width:700px;  padding:0px; margin:0px" src="imagesCindy/01.jpg" alt="Photo1" > 
+           </div>
+
+       </div>
+
+
+
+
+   </div></div></div>
+</div>
+
+
+<!------------------------------------------------------------------------------------------------------- -->
+<! ### FOOTER -->
+<!------------------------------------------------------------------------------------------------------- -->
+<div class=col-xs-12 col-sm-12 col-lg-12 col-xl-12">
+   <div id="multiCollapseExample000038" class="cc" >
+   <div class="card card-body">   
+   <div class="row mr-auto                 container-fluid">
+       <div class="col-xs-12 col-sm-12 col-lg-12 col-xl-12 container-fluid">
+
+             ©CODA.ORG, ALL RIGHTS RESERVED. 
+             <a  style="background-color:#a56ca7" target="_blank" rel="noopener" href="https://coda.org/default/assets/File/CoDAFairUsePolicy-final.pdf">Fair Use </a>
+             <a target="_blank" href="https://coda.org/privacy/">              Privacy </a>
+             <a href="mailto:JohnnyM78.NJ@gmail.com"> 
+                      <span></span>
+                      Website designed by: Johnny M and Cindy R</a>
+
+             <a target="_blank" rel="noopener" href="https://coda.org/meeting/promises-for-recovery/">
+              special thanks to CODA meeting Promises For Recovery, Pine Beach NJ</a>
+
+
+
+       </div>
+   </div></div></div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<script>
+
+/* 
+https://javascript.info/size-and-scroll
+*/
+
+</script>
+
 
 <script type="text/javascript">
 
@@ -336,8 +392,16 @@
     console.log('NXT:' +  itemImageJpg + ' ' + itemVideoMp4 + ' ON: ' + nVideo + ' NEXT: ' + nVideoNxt  );
       
     document.getElementById("vidNbr").innerText = nVideoNxt;
+    document.getElementById("vidNbrG").innerText = nVideoNxt;
+    
+    document.getElementById("vidNbrP").innerText = nVideoNxt;
     document.getElementById("photo1").src="imagesCindy/" + itemImageJpg + ".jpg"; 
     document.getElementById("video1").src="videoCindy/"  + itemVideoMp4 + ".mp4"; 
+
+      document.getElementById("video1").style.minHeight = "100px";
+      document.getElementById("video1").style.width     = "700px";
+
+
     video = document.getElementById("video1");
     video.currentTime = 0;
     video.play();
@@ -438,11 +502,11 @@ $( document ).ready(function() {
 
   var newWH = '600px';
   switch(nFix) {
-    case 1: newWH = '100px';  break;
-    case 2: newWH = '200px';  break;
-    case 3: newWH = '300px';  break;
-    case 4: newWH = '400px';  break;
-    default:              newWH = '500px'; 
+    case 1: newWH =  '50px';  break;
+    case 2: newWH = '100px';  break;
+    case 3: newWH = '150px';  break;
+    case 4: newWH = '200px';  break;
+    default:              newWH = '100px'; 
   }
 
   console.log('MAP: ' + nTotalW + ' Fix: ' + nFix + ' NewW ' + newWH);
@@ -492,8 +556,6 @@ $(window).on('resize', function(e) {
 
 })
 </script>
-
-
 
 </body>
 </html>
