@@ -2,7 +2,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <! version 0706sat 1am -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <style>
@@ -59,15 +59,17 @@
 
       console.log("GET: " + itemSetNN);
 
+      var nScroll = 200; var nVdownScroll = 200; var nPicScroll = 1;
+
       switch(itemSetNN) {
-      case '01': nVideoNxt = '1a - Love'   ;      itemImageJpg = '01';        itemVideoMp4 = '01a' ; console.log("Button Map Media Key set to: 1a");   break;
-      case '02': nVideoNxt = '2a - Museum' ;      itemImageJpg = '02';        itemVideoMp4 = '02a' ; console.log("Button Map Media Key set to: 2a");   break;
-      case '02': nVideoNxt = '3a - George' ;      itemImageJpg = '03';        itemVideoMp4 = '03a' ; console.log("Button Map Media Key set to: 3");    break;
-      case '03': nVideoNxt = '4 - Rocky'   ;      itemImageJpg = '04';        itemVideoMp4 = '04'  ; console.log("Button Map Media Key set to: 4");    break;
-      case '04': nVideoNxt = '5 - Rocky'   ;      itemImageJpg = '05';        itemVideoMp4 = '05'  ; console.log("Button Map Media Key set to: 5");    break;
-      case '06': nVideoNxt = '6 - Rocky'   ;      itemImageJpg = '06';        itemVideoMp4 = '06'  ; console.log("Button Map Media Key set to: 6");    break;
-      case '07': nVideoNxt = '7a - Bell'   ;      itemImageJpg = '07';        itemVideoMp4 = '07a' ; console.log("Button Map Media Key set to: 7");    break;
-      case '08': nVideoNxt = '8a - Market' ;      itemImageJpg = '08';        itemVideoMp4 = '08a' ; console.log("Button Map Media Key set to: 8");    break;
+      case '01': nVideoNxt = '1a - Love'   ; itemImageJpg = '01'; itemVideoMp4 = '01a' ; nScroll = 200;                   console.log("Button Map Media Key set to: 1a");   break;
+      case '02': nVideoNxt = '2a - Museum' ; itemImageJpg = '02'; itemVideoMp4 = '02a' ; nScroll = 200;                   console.log("Button Map Media Key set to: 2a");   break;
+      case '03': nVideoNxt = '3a - George' ; itemImageJpg = '03'; itemVideoMp4 = '03a' ; nScroll = 200;                   console.log("Button Map Media Key set to: 3a");    break;
+      case '04': nVideoNxt = '4 - Rocky'   ; itemImageJpg = '04'; itemVideoMp4 = '04'  ; nScroll = 200; nVdownScroll = 200;   console.log("Button Map Media Key set to: 4");    break;
+      case '06': nVideoNxt = '5 - Rocky'   ; itemImageJpg = '05'; itemVideoMp4 = '05'  ; nScroll = 200;                   console.log("Button Map Media Key set to: 5");    break;
+      case '06': nVideoNxt = '6 - Rocky'   ; itemImageJpg = '06'; itemVideoMp4 = '06'  ; nScroll = 200; nPicScroll = 300; console.log("Button Map Media Key set to: 6");    break;
+      case '07': nVideoNxt = '7a - Bell'   ; itemImageJpg = '07'; itemVideoMp4 = '07a' ; nScroll = 200; nPicScroll = 300; console.log("Button Map Media Key set to: 7");    break;
+      case '08': nVideoNxt = '8a - Market' ; itemImageJpg = '08'; itemVideoMp4 = '08a' ; nScroll = 200;                   console.log("Button Map Media Key set to: 8");    break;
       default:  console.log("Button Map Media Key is not availible.");
       }
  
@@ -81,9 +83,19 @@
       document.getElementById("video1").style.minHeight = "100px";
       document.getElementById("video1").style.width     = "700px";
 
+      var es = document.getElementById("vvv1");
+      es.scrollLeft = nScroll;
+      es.scrollTop  = nScroll;
+
+      var esPic = document.getElementById("vvv2");
+      esPic.scrollLeft = nPicScroll;
+      esPic.scrollTop  = nPicScroll;
+
+
       video = document.getElementById("video1");
       video.currentTime = 0;
       video.play();
+
  
 
     } 
@@ -369,25 +381,28 @@ https://javascript.info/size-and-scroll
 
     var itemImageJpg = '01';    var itemVideoMp4 = '01a';  var nVideoNxt = 'NONE';
 
+    var nScroll = 200; var nVdownScroll = 200; var nPicScroll = 1;
+
     switch(nVideo ) {
-    case '1a - Love':   nVideoNxt = '1b - Love'    ;    itemImageJpg = '01';        itemVideoMp4 = '01b'; console.log("Next Video starting is 1b");   break;
-    case '1b - Love':   nVideoNxt = '1c - Love'    ;    itemImageJpg = '01';        itemVideoMp4 = '01c'; console.log("Next Video starting is 1c");   break;
-    case '1c - Love':   nVideoNxt = '2a - Museum'  ;    itemImageJpg = '02';        itemVideoMp4 = '02a'; console.log("Next Video starting is 2a");   break;
-    case '2a - Museum': nVideoNxt = '2b - Museum'  ;    itemImageJpg = '02';        itemVideoMp4 = '02b'; console.log("Next Video starting is 2b");   break;
-    case '2b - Museum': nVideoNxt = '2c - Museum'  ;    itemImageJpg = '02';        itemVideoMp4 = '02c'; console.log("Next Video starting is 2c");   break;
-    case '2c - Museum': nVideoNxt = '3a - George'  ;    itemImageJpg = '03';        itemVideoMp4 = '03a'; console.log("Next Video starting is 3a");   break;
-    case '3a - George': nVideoNxt = '3b - George'  ;    itemImageJpg = '03';        itemVideoMp4 = '03b'; console.log("Next Video starting is 3b");   break;
-    case '3b - George': nVideoNxt = '3c - George'  ;    itemImageJpg = '03';        itemVideoMp4 = '03c'; console.log("Next Video starting is 3c");   break;
-    case '3c - George': nVideoNxt = '4 - Rocky'    ;    itemImageJpg = '04';        itemVideoMp4 = '04' ; console.log("Next Video starting is 4") ;   break;
-    case '4 - Rocky':   nVideoNxt = '5 - Rocky'    ;    itemImageJpg = '05';        itemVideoMp4 = '05' ; console.log("Next Video starting is 5") ;   break;
-    case '5 - Rocky':   nVideoNxt = '6 - Rocky'    ;    itemImageJpg = '06';        itemVideoMp4 = '06' ; console.log("Next Video starting is 6") ;   break;
-    case '6 - Rocky':   nVideoNxt = '7a - Bell'    ;    itemImageJpg = '07';        itemVideoMp4 = '07a'; console.log("Next Video starting is 7a");   break;
-    case '7a - Bell':   nVideoNxt = '7b - Bell'    ;    itemImageJpg = '07';        itemVideoMp4 = '07b'; console.log("Next Video starting is 7b");   break;
-    case '7b - Bell':   nVideoNxt = '8a - Market'  ;    itemImageJpg = '08';        itemVideoMp4 = '08a'; console.log("Next Video starting is 8a");   break;
-    case '8a - Market': nVideoNxt = '8b - Market'  ;    itemImageJpg = '08';        itemVideoMp4 = '08b'; console.log("Next Video starting is 8b");   break;
-    case '8b - Market': nVideoNxt = '1a - Love'    ;    itemImageJpg = '01';        itemVideoMp4 = '01a'; console.log("Next Video starting is 1a");   break;
+    case '1a - Love':   nVideoNxt = '1b - Love'    ; itemImageJpg = '01'; itemVideoMp4 = '01b'; console.log("Next Video starting is 1b");   break;
+    case '1b - Love':   nVideoNxt = '1c - Love'    ; itemImageJpg = '01'; itemVideoMp4 = '01c'; console.log("Next Video starting is 1c");   break;
+    case '1c - Love':   nVideoNxt = '2a - Museum'  ; itemImageJpg = '02'; itemVideoMp4 = '02a'; console.log("Next Video starting is 2a");   break;
+    case '2a - Museum': nVideoNxt = '2b - Museum'  ; itemImageJpg = '02'; itemVideoMp4 = '02b'; console.log("Next Video starting is 2b");   break;
+    case '2b - Museum': nVideoNxt = '2c - Museum'  ; itemImageJpg = '02'; itemVideoMp4 = '02c'; console.log("Next Video starting is 2c");   break;
+    case '2c - Museum': nVideoNxt = '3a - George'  ; itemImageJpg = '03'; itemVideoMp4 = '03a'; console.log("Next Video starting is 3a");   break;
+    case '3a - George': nVideoNxt = '3b - George'  ; itemImageJpg = '03'; itemVideoMp4 = '03b'; console.log("Next Video starting is 3b");   break;
+    case '3b - George': nVideoNxt = '3c - George'  ; itemImageJpg = '03'; itemVideoMp4 = '03c'; console.log("Next Video starting is 3c");   break;
+    case '3c - George': nVideoNxt = '4 - Rocky'    ; itemImageJpg = '04'; itemVideoMp4 = '04' ; console.log("Next Video starting is 4") ;   break;
+    case '4 - Rocky':   nVideoNxt = '5 - Rocky'    ; itemImageJpg = '05'; itemVideoMp4 = '05' ; console.log("Next Video starting is 5") ;   break;
+    case '5 - Rocky':   nVideoNxt = '6 - Rocky'    ; itemImageJpg = '06'; itemVideoMp4 = '06' ; nPicScroll = 300; console.log("Next Video starting is 6") ;   break;
+    case '6 - Rocky':   nVideoNxt = '7a - Bell'    ; itemImageJpg = '07'; itemVideoMp4 = '07a'; nPicScroll = 300; console.log("Next Video starting is 7a");   break;
+    case '7a - Bell':   nVideoNxt = '7b - Bell'    ; itemImageJpg = '07'; itemVideoMp4 = '07b'; nPicScroll = 300; console.log("Next Video starting is 7b");   break;
+    case '7b - Bell':   nVideoNxt = '8a - Market'  ; itemImageJpg = '08'; itemVideoMp4 = '08a'; console.log("Next Video starting is 8a");   break;
+    case '8a - Market': nVideoNxt = '8b - Market'  ; itemImageJpg = '08'; itemVideoMp4 = '08b'; console.log("Next Video starting is 8b");   break;
+    case '8b - Market': nVideoNxt = '1a - Love'    ; itemImageJpg = '01'; itemVideoMp4 = '01a'; console.log("Next Video starting is 1a");   break;
     default:  console.log("Next Video is not availible.");
     }
+
 
     console.log('NXT:' +  itemImageJpg + ' ' + itemVideoMp4 + ' ON: ' + nVideo + ' NEXT: ' + nVideoNxt  );
       
@@ -398,9 +413,16 @@ https://javascript.info/size-and-scroll
     document.getElementById("photo1").src="imagesCindy/" + itemImageJpg + ".jpg"; 
     document.getElementById("video1").src="videoCindy/"  + itemVideoMp4 + ".mp4"; 
 
-      document.getElementById("video1").style.minHeight = "100px";
-      document.getElementById("video1").style.width     = "700px";
+    document.getElementById("video1").style.minHeight = "100px";
+    document.getElementById("video1").style.width     = "700px";
 
+    var es = document.getElementById("vvv1");
+    es.scrollLeft = nScroll;
+    es.scrollTop  = nScroll;
+
+    var esPic = document.getElementById("vvv2");
+    esPic.scrollLeft = nPicScroll;
+    esPic.scrollTop  = nPicScroll;
 
     video = document.getElementById("video1");
     video.currentTime = 0;
