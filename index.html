@@ -40,13 +40,26 @@
        border-radius: 50%;
        cursor: none;
        /*Set the size of the magnifier glass:*/
-       width:  100px;
-       height: 100px;
+       width:  200px;
+       height: 200px;
      }
 
  </style>
 
+<script src="js/mapPoints.js"></script>
+
 <script type="text/javascript">
+
+function mapPoint(nMapPoint, nVideo, nPhoto, nMapRow, nMapCol, nGlassRow, nGlassCol, title) {
+  this.nMapPoint = nMapPoint;
+  this.nVideo    = nVideo;
+  this.nPhoto    = nPhoto;
+  this.nMapRow   = nMapRow; 
+  this.nMapCol   = nMapCol;
+  this.nGlassRow = nGlassRow; 
+  this.nGlassCol = nGlassCol;
+  this.title     = title;
+}
 
     /* ---------------------------------------------------------------------------------------------------- */
     function getItem(itemSetNN) {   /* FROM BUTTON LIST */
@@ -59,17 +72,17 @@
 
       console.log("GET: " + itemSetNN);
 
-      var nScroll = 200; var nVdownScroll = 200; var nPicScroll = 1;
+      var nScroll = 200; var nVdownScroll = 200; var nPicScroll = 1; var nGlassR = 100 ; var nGlassC = 100 ; var nGlass = 0;
 
       switch(itemSetNN) {
-      case '01': nVideoNxt = '1a - Love'   ; itemImageJpg = '01'; itemVideoMp4 = '01a' ; nScroll = 200;                   console.log("Button Map Media Key set to: 1a");   break;
-      case '02': nVideoNxt = '2a - Museum' ; itemImageJpg = '02'; itemVideoMp4 = '02a' ; nScroll = 200;                   console.log("Button Map Media Key set to: 2a");   break;
-      case '03': nVideoNxt = '3a - George' ; itemImageJpg = '03'; itemVideoMp4 = '03a' ; nScroll = 200;                   console.log("Button Map Media Key set to: 3a");    break;
-      case '04': nVideoNxt = '4 - Rocky'   ; itemImageJpg = '04'; itemVideoMp4 = '04'  ; nScroll = 200; nVdownScroll = 200;   console.log("Button Map Media Key set to: 4");    break;
-      case '05': nVideoNxt = '5 - Rocky'   ; itemImageJpg = '05'; itemVideoMp4 = '05'  ; nScroll = 200;                   console.log("Button Map Media Key set to: 5");    break;
-      case '06': nVideoNxt = '6 - Rocky'   ; itemImageJpg = '06'; itemVideoMp4 = '06'  ; nScroll = 200; nPicScroll = 300; console.log("Button Map Media Key set to: 6");    break;
-      case '07': nVideoNxt = '7a - Bell'   ; itemImageJpg = '07'; itemVideoMp4 = '07a' ; nScroll = 200; nPicScroll = 300; console.log("Button Map Media Key set to: 7");    break;
-      case '08': nVideoNxt = '8a - Market' ; itemImageJpg = '08'; itemVideoMp4 = '08a' ; nScroll = 200;                   console.log("Button Map Media Key set to: 8");    break;
+      case '01': nMapGlass = 1 ; nVideoNxt = '1a - Love'   ; itemImageJpg = '01'; itemVideoMp4 = '01a' ; nScroll = 200; nGlassR =  75 ; nGlassC = 150 ;  console.log("Button Map Media Key set to: 1a");   break;
+      case '02': nMapGlass = 2 ; nVideoNxt = '2a - Museum' ; itemImageJpg = '02'; itemVideoMp4 = '02a' ; nScroll = 200; nGlassR = 300 ; nGlassC = 300 ;  console.log("Button Map Media Key set to: 2a");   break;
+      case '03': nMapGlass = 3 ; nVideoNxt = '3a - George' ; itemImageJpg = '03'; itemVideoMp4 = '03a' ; nScroll = 200; nGlassR = 700 ; nGlassC = 700 ;   console.log("Button Map Media Key set to: 3a");    break;
+      case '04': nMapGlass = 4 ; nVideoNxt = '4 - Rocky'   ; itemImageJpg = '04'; itemVideoMp4 = '04'  ; nScroll = 200; nVdownScroll = 200;   console.log("Button Map Media Key set to: 4");    break;
+      case '05': nMapGlass = 5 ; nVideoNxt = '5 - Rocky'   ; itemImageJpg = '05'; itemVideoMp4 = '05'  ; nScroll = 200;                   console.log("Button Map Media Key set to: 5");    break;
+      case '06': nMapGlass = 6 ; nVideoNxt = '6 - Rocky'   ; itemImageJpg = '06'; itemVideoMp4 = '06'  ; nScroll = 200; nPicScroll = 300; console.log("Button Map Media Key set to: 6");    break;
+      case '07': nMapGlass = 7 ; nVideoNxt = '7a - Bell'   ; itemImageJpg = '07'; itemVideoMp4 = '07a' ; nScroll = 200; nPicScroll = 300; console.log("Button Map Media Key set to: 7");    break;
+      case '08': nMapGlass = 8 ; nVideoNxt = '8a - Market' ; itemImageJpg = '08'; itemVideoMp4 = '08a' ; nScroll = 200;                   console.log("Button Map Media Key set to: 8");    break;
       default:  console.log("Button Map Media Key is not availible.");
       }
  
@@ -96,9 +109,56 @@
       video.currentTime = 0;
       video.play();
 
- 
+
+      var eGlass = document.getElementById("magID");
+
+
+      /* Map controls/settings for each Video/Photo combo. Slider bars. Mag Glass location and what to magnify. */ 
+      const mapPointsObj = peopleArrays.map(([nVideo, nPhoto, nMapRow, nMapCol, nGlassRow, nGlassCol, title]) => ({ nVideo, nPhoto, nMapRow, nMapCol, nGlassRow, nGlassCol, title }));
+
+      var gT = mapPointsObj[nMapGlass].title;
+
+      /* Glass (What is magnified) */
+      var gR = mapPointsObj[nMapGlass].nGlassRow; 
+      var gC = mapPointsObj[nMapGlass].nGlassCol;
+      eGlass.style.backgroundPosition = gR +' '+ gC;  /* What is magnified */
+
+      /* Glass is where on map */
+      var magWhatR = mapPointsObj[nMapGlass].nMapRow; 
+      var magWhatC = mapPointsObj[nMapGlass].nMapCol;
+      eGlass.style.top  = magWhatC;
+      eGlass.style.left = magWhatR;
 
     } 
+
+
+</script>
+
+
+
+<script type="text/javascript">
+
+function showCoords(e) {
+
+  var ex = document.getElementById("myimageMAN");
+
+  var e = document.getElementById("photo1");
+
+  /* Offset: Top left corner of image. Relative to the edge of the padding on the targeted node. Calculated from the left padding and the top padding. */
+  var yRowOffSet = e.offsetTop;
+  var xColOffSet = e.offsetLeft 
+
+  /* Client: relative to viewport. */
+  var yRowClient = e.clientY;
+  var xColClient = e.clientX;
+
+  var yRowMap = 0; yRowMap =  ( yRowClient - yRowOffSet );
+  var xColMap = 0; xColMap =  ( xColClient - xColOffSet );
+
+  alert("Map RC: " + yRowMap + " " + xColMap);
+
+    } 
+
 </script>
 
 
@@ -299,12 +359,12 @@
 
        </div>
 
-       <div class="mcol-xs-5 col-sm-5 col-lg-5 col-xl-5 container-fluid"    style="                                padding:0px; margin:0px; border:5px solid #000000;">
+       <div class="mcol-xs-5 col-sm-5 col-lg-5 col-xl-5 container-fluid"    style="                                padding:0px; margin:0px; border:5px solid #000000;" >
            <h2  id="vidNbrG"    class="     container-fluid text-center"    style="                                padding:0px; margin:0px; background-color:#fadadd" >1a - Love<h2>
 
            <div id="mmm2"       class="mmm2 container-fluid pre-scrollable" style="min-height: 390px;              padding:0px; margin:0px;">
            <div class="img-magnifier-container"                             style="                                padding:0px; margin:0px;">
-           <img id="myimageMAN" class="container-fluid "                    style="min-height: 100px; width:700px; "                         src="imagesCindy/20.jpg" alt="Map1"  >
+           <img id="myimageMAN" class="container-fluid "                    style="min-height: 100px; width:700px; "                         src="imagesCindy/20.jpg" alt="Map1"   >
            </div>                   
            </div>
 
