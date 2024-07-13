@@ -1,41 +1,16 @@
 <html lang="en">
 <head>
 
-    <! version 0710 Wed 07:28 PM  -->
+    <! version 0713 Sun 04:00 PM  -->
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <style>
-    .collapse.collapsed:before {  display: none; }
-    .collapse:before           {  display: none; }
-        .customClassForDropDown
-        {
-           height: 50vh;
-           overflow-y: auto;
-        }
-
-
-
-     .fill {object-fit: fill;}
-     .contain {object-fit: contain;}
-     .cover {object-fit: cover;}
-     .scale-down {object-fit: scale-down;}
-     .none {object-fit: none;}
-
-     .carousel-control-next,
-     .carousel-control-prev /*, .carousel-indicators */ {
-    filter: invert(100%);
-     }
-
-
-     * {box-sizing: border-box;}
-
      .img-magnifier-container {
        position: relative;
      }
-
      .img-magnifier-glass {
        position: absolute;
        border: 3px solid #000;
@@ -45,23 +20,112 @@
        width:  200px;
        height: 200px;
      }
+    </style>
 
- </style>
+    <script src="js/mapPoints.js"> /* Video Map Photo list order and settings. Titles Scroll Mag Glass */ </script>
 
-<script src="js/mapPoints.js"></script>
+</head>
+
+
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+<! ### WEB PAGE ###                                                                                                                 -->
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+
+<body style="background-color:#a56ca7">
+
+<h2 class="text-center">TEST: 2025 CoDA Service Conference (CSC) October 5-9 DUE Sun 7/21</h2>
+<h2 class="text-center">VER1: 2025 International CoDA Convention (ICC)  October 10-12</h2>
+
+<div class="col-xs-12 col-sm-12 col-lg-12 col-xl-12">
+<div class="cc" >
+
+   <!------------------------------------------------------------------------------------------------------- -->
+   <! ### BUTTONS -->
+   <!------------------------------------------------------------------------------------------------------- -->
+   <div class="card card-body" style="background-color:#feeb10; padding:5px;">
+      <div class="dropdown">
+      <span class="text-nowrap bd-highlight font-weight-bolder">Media Selection:</span>
+      <button type= "button" class="btn border border-light btn-primary btn-all" onclick="actGo()  ;" >Play</button>
+      <button type= "button" class="btn border border-light btn-primary btn-all" onclick="actStop();" >Pause</button>
+      <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('01');"> 1a - Love</button>
+      <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('02');"> 2a - Museum</button>
+      <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('03');"> 3a - George</button>
+      <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('04');"> 4 - Rocky</button>
+      <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('05');"> 5 - Rocky</button>
+      <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('06');"> 6 - Rocky</button>
+      <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('07');"> 7a - Bell</button>
+      <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('08');"> 8a - Market</button>
+      </div>
+   </div>
+
+   <!------------------------------------------------------------------------------------------------------- -->
+   <! ### ITEM MAP GLASS MANUAL d-block w-100 width:700px; -->
+   <!------------------------------------------------------------------------------------------------------- -->
+
+   <div class="card card-body"  style="padding:5px;">   
+   <div class="row mr-auto container-fluid">
+       <div class="col-xs-3 col-sm-3 col-lg-3 col-xl-3 container-fluid"     style="                                 padding:0px; margin:0px; border:5px solid #000000;">
+           <h2    id="titleV" class="       container-fluid text-center"    style="                                 padding:0px; margin:0px; background-color:#fadadd">1a - Love<h2>
+           <div   id="scrolV" class="scrolV container-fluid pre-scrollable" style="min-height: 390px;               padding:0px; margin:0px;">
+           <video id="videoV" class="       container-fluid "               style="min-height: 100px; width=700px;  padding:0px; margin:0px;" src="videoCindy/01.mp4" controls onended="nextVideo();"> </video> 
+           </div>
+       </div>
+       <div class="mcol-xs-5 col-sm-5 col-lg-5 col-xl-5 container-fluid"    style="                                 padding:0px; margin:0px; border:5px solid #000000;" >
+           <h2  id="titleM" class="         container-fluid text-center"    style="                                 padding:0px; margin:0px; background-color:#fadadd" >1a - Love<h2>
+           <div id="scrolM" class="scrolM   container-fluid pre-scrollable" style="min-height: 390px;               padding:0px; margin:0px;">
+           <div             class="img-magnifier-container"                 style="                                 padding:0px; margin:0px;">
+ 
+           <div id="glassM" class="img-magnifier-glass"                     onclick="getMouseXY('glass');" 
+                style="background-image: url('imagesCindy/20.jpg');
+                background-repeat: no-repeat; background-size: 2680px 1804px; background-position: 55% 58%; 
+                top: 130px; left: 56%; width: 100px; height: 100px;">
+           </div>
+
+           <img id="imageM" class="container-fluid "                        style="min-height: 100px; width:700px;"     src="imagesCindy/20.jpg" alt="Map1"   >
+           </div>                   
+           </div>
+       </div>
+       <div class="col-xs-4 col-sm-4 col-lg-4 col-xl-4 container-fluid"     style="                                 padding:0px; margin:0px; border:5px solid #000000;">
+           <h2  id="titleP" class="         container-fluid text-center"    style="                                 padding:0px; margin:0px; background-color:#fadadd" >1a - Love<h2>
+           <div id="scrolP" class="scrolP   container-fluid pre-scrollable" style="min-height: 390px;               padding:0px; margin:0px">
+           <img id="imageP" class="         container-fluid"                style="min-height: 100px; width:700px;  padding:0px; margin:0px" src="imagesCindy/01.jpg" alt="Photo1" > 
+           </div>
+       </div>
+
+   </div></div>
+
+   <!------------------------------------------------------------------------------------------------------- -->
+   <! ### FOOTER -->
+   <!------------------------------------------------------------------------------------------------------- -->
+   <div class="card card-body" style="background-color:#feeb10; padding:5px;">
+      <div class="text-center">
+                                                                                                   ©CODA.ORG, ALL RIGHTS RESERVED: 
+      <a target="_blank" href="https://coda.org/default/assets/File/CoDAFairUsePolicy-final.pdf"  >[Fair Use]</a>
+      <a target="_blank" href="https://coda.org/privacy/"                                         >[Privacy]</a>
+      </br>
+                                                                                                   Website designed by 
+
+      <a target="_blank" href="https://coda.org/meeting/promises-for-recovery/"                   >Cindy R</a>
+
+                                                                                                   and
+
+      <a target="_blank" href="mailto:JohnnyM78.NJ@gmail.com"                                     >Johnny M</a>
+
+                                                                                                   from CODA meeting 
+
+      <a target="_blank" href="https://coda.org/meeting/promises-for-recovery/"                   >Promises For Recovery</a>
+                                                                                                   , Pine Beach NJ
+      </div>
+   </div>
+
+<!------------------------------------------------------------------------------------------------------- -->
+</div></div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 <script type="text/javascript">
-
-function mapPoint(nMapPoint, nVideo, nPhoto, nMapRow, nMapCol, nGlassRow, nGlassCol, title) {
-  this.nMapPoint = nMapPoint;
-  this.nVideo    = nVideo;
-  this.nPhoto    = nPhoto;
-  this.nMapRow   = nMapRow; 
-  this.nMapCol   = nMapCol;
-  this.nGlassRow = nGlassRow; 
-  this.nGlassCol = nGlassCol;
-  this.title     = title;
-}
 
     /* ---------------------------------------------------------------------------------------------------- */
     function getItem(itemSetNN) {   /* FROM BUTTON LIST */
@@ -74,51 +138,37 @@ function mapPoint(nMapPoint, nVideo, nPhoto, nMapRow, nMapCol, nGlassRow, nGlass
 
       console.log("GET: " + itemSetNN);
 
-      var nScroll = 200; var nVdownScroll = 200; var nPicScroll = 1; var nGlassR = 100 ; var nGlassC = 100 ; var nGlass = 0;
+      /* Map controls/settings for each Video/Photo combo. Slider bars. Mag Glass location and what to magnify. */ 
+      const mapPointsObj = mapMediaInfo.map(([nVideo, nPhoto, nMapRowLR, nMapColUD, nGlassRow, nGlassCol, nVidScrollRowLR, nVidScrollColUP, nMapScrollRowLR, nMapScrollColUP, nPicScrollRowLR, nPicScrollColUP, title]) => ({                nVideo, nPhoto, nMapRowLR, nMapColUD, nGlassRow, nGlassCol, nVidScrollRowLR, nVidScrollColUP, nMapScrollRowLR, nMapScrollColUP, nPicScrollRowLR, nPicScrollColUP, title }));
 
       switch(itemSetNN) {
-      case '01': nMapGlass = 1 ; nVideoNxt = '1a - Love'   ; itemImageJpg = '01'; itemVideoMp4 = '01a' ; nScroll = 200; nGlassR =  75 ; nGlassC = 150 ;  console.log("Button Map Media Key set to: 1a");   break;
-      case '02': nMapGlass = 2 ; nVideoNxt = '2a - Museum' ; itemImageJpg = '02'; itemVideoMp4 = '02a' ; nScroll = 200; nGlassR = 300 ; nGlassC = 300 ;  console.log("Button Map Media Key set to: 2a");   break;
-      case '03': nMapGlass = 3 ; nVideoNxt = '3a - George' ; itemImageJpg = '03'; itemVideoMp4 = '03a' ; nScroll = 200; nGlassR = 700 ; nGlassC = 700 ;   console.log("Button Map Media Key set to: 3a");    break;
-      case '04': nMapGlass = 4 ; nVideoNxt = '4 - Rocky'   ; itemImageJpg = '04'; itemVideoMp4 = '04'  ; nScroll = 200; nVdownScroll = 200;   console.log("Button Map Media Key set to: 4");    break;
-      case '05': nMapGlass = 5 ; nVideoNxt = '5 - Rocky'   ; itemImageJpg = '05'; itemVideoMp4 = '05'  ; nScroll = 200;                   console.log("Button Map Media Key set to: 5");    break;
-      case '06': nMapGlass = 6 ; nVideoNxt = '6 - Rocky'   ; itemImageJpg = '06'; itemVideoMp4 = '06'  ; nScroll = 200; nPicScroll = 300; console.log("Button Map Media Key set to: 6");    break;
-      case '07': nMapGlass = 7 ; nVideoNxt = '7a - Bell'   ; itemImageJpg = '07'; itemVideoMp4 = '07a' ; nScroll = 200; nPicScroll = 300; console.log("Button Map Media Key set to: 7");    break;
-      case '08': nMapGlass = 8 ; nVideoNxt = '8a - Market' ; itemImageJpg = '08'; itemVideoMp4 = '08a' ; nScroll = 200;                   console.log("Button Map Media Key set to: 8");    break;
-      default:  console.log("Button Map Media Key is not availible.");
+      case '01': nMapGlass = 1 ; console.log("Button Map set to: 1a"); break;
+      case '02': nMapGlass = 2 ; console.log("Button Map set to: 2a"); break;
+      case '03': nMapGlass = 3 ; console.log("Button Map set to: 3a"); break;
+      case '04': nMapGlass = 4 ; console.log("Button Map set to: 4") ; break;
+      case '05': nMapGlass = 5 ; console.log("Button Map set to: 5") ; break;
+      case '06': nMapGlass = 6 ; console.log("Button Map set to: 6") ; break;
+      case '07': nMapGlass = 7 ; console.log("Button Map set to: 7") ; break;
+      case '08': nMapGlass = 8 ; console.log("Button Map set to: 8") ; break;
+      default:  console.log("Button Map is not availible.");
       }
+
+      itemImageJpg = mapPointsObj[nMapGlass].nPhoto;
+      itemVideoMp4 = mapPointsObj[nMapGlass].nVideo;
+      nVideoNxt    = mapPointsObj[nMapGlass].title;
  
-      document.getElementById("vidNbr").innerText = nVideoNxt;
-      document.getElementById("vidNbrG").innerText = nVideoNxt;
+      document.getElementById("titleV").innerText = nVideoNxt;
+      document.getElementById("titleM").innerText = nVideoNxt;
+      document.getElementById("titleP").innerText = nVideoNxt;
+      document.getElementById("imageP").src="imagesCindy/" + itemImageJpg + ".jpg"; 
+      document.getElementById("videoV").src="videoCindy/"  + itemVideoMp4 + ".mp4"; 
+      document.getElementById("videoV").style.minHeight = "100px";
+      document.getElementById("videoV").style.width     = "700px";
 
-      document.getElementById("vidNbrP").innerText = nVideoNxt;
-      document.getElementById("photo1").src="imagesCindy/" + itemImageJpg + ".jpg"; 
-      document.getElementById("video1").src="videoCindy/"  + itemVideoMp4 + ".mp4"; 
-
-      document.getElementById("video1").style.minHeight = "100px";
-      document.getElementById("video1").style.width     = "700px";
-
-      var es = document.getElementById("vvv1");
-      es.scrollLeft = nScroll;
-      es.scrollTop  = nScroll;
-
-      var esPic = document.getElementById("vvv2");
-      esPic.scrollLeft = nPicScroll;
-      esPic.scrollTop  = nPicScroll;
-
-
-      video = document.getElementById("video1");
-      video.currentTime = 0;
-      video.play();
-
-
-      var eGlass = document.getElementById("magID");
-
-
-      /* Map controls/settings for each Video/Photo combo. Slider bars. Mag Glass location and what to magnify. */ 
-      const mapPointsObj = peopleArrays.map(([nVideo, nPhoto, nMapRow, nMapCol, nGlassRow, nGlassCol, title]) => ({ nVideo, nPhoto, nMapRow, nMapCol, nGlassRow, nGlassCol, title }));
-
-      var gT = mapPointsObj[nMapGlass].title;
+      var eGlass = document.getElementById("glassM");
+      var esVid = document.getElementById("scrolV");
+      var esPic = document.getElementById("scrolP");
+      var esMap = document.getElementById("scrolM");
 
       /* Glass (What is magnified) */
       var gR = mapPointsObj[nMapGlass].nGlassRow; 
@@ -126,303 +176,54 @@ function mapPoint(nMapPoint, nVideo, nPhoto, nMapRow, nMapCol, nGlassRow, nGlass
       eGlass.style.backgroundPosition = gR +' '+ gC;  /* What is magnified */
 
       /* Glass is where on map */
-      var magWhatR = mapPointsObj[nMapGlass].nMapRow; 
-      var magWhatC = mapPointsObj[nMapGlass].nMapCol;
+      var magWhatR = mapPointsObj[nMapGlass].nMapRowLR; 
+      var magWhatC = mapPointsObj[nMapGlass].nMapColUD;
       eGlass.style.top  = magWhatC;
       eGlass.style.left = magWhatR;
 
+      /* Video scroll */
+      var vLR = mapPointsObj[nMapGlass].nVidScrollRowLR; 
+      var vUD = mapPointsObj[nMapGlass].nVidScrollColUP;
+      esVid.scrollLeft = vLR; /* Works great */
+      esVid.scrollTop  = vUD;
+      esVid.scroll('200','300');
+      /* esVid.style.scrollTop += 200; */
+
+      /* Pic scroll */
+      var pLR = mapPointsObj[nMapGlass].nPicScrollRowLR; 
+      var pUD = mapPointsObj[nMapGlass].nPicScrollColUP;
+      esPic.scrollLeft = pLR;
+      esPic.scrollTop  = pUD;
+
+      /* Map scroll */
+      var mLR = mapPointsObj[nMapGlass].nMapScrollRowLR; 
+      var mUD = mapPointsObj[nMapGlass].nMapScrollColUP;
+      esMap.scrollLeft = mLR;
+      esMap.scrollTop  = mUD;
+      /*
+      esMap.scroll('200','300');
+      esMap.style.scrollTop += 100;
+      */
+     
+      /* Title */
+      var gT = mapPointsObj[nMapGlass].title;
+
+      video = document.getElementById("videoV");
+      video.currentTime = 0;
+      video.play();
+
+
+      /*
+
+      */
+
+      /*
+      es.scrollLeft = nScroll;
+      es.scrollTop  = nScroll;
+      alert(vLR +' '+ vUD +' '+ nScroll);
+      */
+
     } 
-
-
-</script>
-
-
-
-<script type="text/javascript">
-
-function showCoords(e) {
-
-  var ex = document.getElementById("myimageMAN");
-
-  var e = document.getElementById("photo1");
-
-  /* Offset: Top left corner of image. Relative to the edge of the padding on the targeted node. Calculated from the left padding and the top padding. */
-  var yRowOffSet = e.offsetTop;
-  var xColOffSet = e.offsetLeft 
-
-  /* Client: relative to viewport. */
-  var yRowClient = e.clientY;
-  var xColClient = e.clientX;
-
-  var yRowMap = 0; yRowMap =  ( yRowClient - yRowOffSet );
-  var xColMap = 0; xColMap =  ( xColClient - xColOffSet );
-
-  alert("Map RC: " + yRowMap + " " + xColMap);
-
-    } 
-
-</script>
-
-
-
-
-<script type="text/javascript">
-
-
-    function magic1(info1) {
-
-       if ( info1 == "cindy" ) {  
-
-           document.getElementById("head1").style.visibility = "visible";
-           document.getElementById("div1_ID").style.visibility = "visible";
-
-       }
-
-       return("True");
-    }
-
-
-    function inRange(x, min, max) {
-        return ((x-min)*(x-max) <= 0);
-    }
-
-
-    function getMouseXY(tWhat) {
-
-        console.log("tWhat:" + tWhat);
-
-
-        if ( tWhat == "sol" ) {
-
-           var mapBKposRow = window.event.offsetY;
-           var mapBKposCol = window.event.offsetX;
-
-
-           console.log("CLICKsol:" + mapBKposRow + ', ' + mapBKposCol);
-
-        };
-
- 
-        if ( tWhat == "map" ) {
-
-           var mapBKposRow = window.event.offsetY;
-           var mapBKposCol = window.event.offsetX;
-
-           var mapImage = document.getElementById("mapImage");
-           var mapImgW = mapImage.clientWidth;
-           var mapImgH = mapImage.clientHeight;
-
-           var mapOrgH = 738 ; var mapAdjH = Math.round( ( mapImgH / mapOrgH ) * 100 );  
-           var mapOrgW = 1090; var mapAdjW = Math.round( ( mapImgW / mapOrgW ) * 100 );  
-
-           var itemAtRow = 309; var itemAtCol = 415 ; var itemName = 'Main Street' ; var itemImageJpg = '14' ; itemVideoMp4 = '03' ;
-
-           var irPlus = 10 ; var irMinus = irPlus ;
-
-           var irRowMin = Math.round( (itemAtRow - irMinus ) * ( mapAdjH / 100 ) );  
-           var irRowMax = Math.round( (itemAtRow + irPlus  ) * ( mapAdjH / 100 ) );
-
-           var irColMin = Math.round( (itemAtCol - irMinus ) * ( mapAdjW / 100 ) );  
-           var irColMax = Math.round( (itemAtCol + irPlus  ) * ( mapAdjW / 100 ) );
-
-           var irRow = inRange(mapBKposRow, irRowMin , irRowMax );
-           var irCol = inRange(mapBKposCol, irColMin , irColMax ); 
-
-           if ( irRow & irCol ) { 
-              document.getElementById("photo1").src="imagesCindy/" + itemImageJpg + ".jpg"; 
-              document.getElementById("video1").src="videoCindy/"  + itemVideoMp4 + ".mp4"; 
-
-              video = document.getElementById("video1");
-              video.currentTime = 0;
-              video.play();
-
-           }
-
-           /*         
-           window.alert("CLICK:" + "At row: " +  mapBKposRow + " col: " + mapBKposCol  + " Map H: " + mapImgH   + " W: " + mapImgW + " " + irRow + irCol + " " + mapAdjW + " " + mapAdjH  + " " + irRowMin   + " " + irRowMax    ); 
-           */
-
-        };
-      
-        if ( tWhat == "glass" ) {
-
-        var mag = document.getElementById("magID");
-
-        var magBKposRow =   Math.abs(parseInt(mag.style.backgroundPositionY));
-        var magBKposCol =   Math.abs(parseInt(mag.style.backgroundPositionX));
-
-
-        var magBKsize =   mag.style.backgroundSize;
-
-        console.log("MAGpos:" + magBKposRow+ " " + magBKposCol  + " " + magBKsize + " " + tWhat );
-
-        };
-
-        /* document.getElementById("photo1").src="imagesCindy/21.jpg"; */
-
-  
-        
-    }
-</script>
-
-</head>
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- TOP ------------------------------------------------------------------------------------------------ -->
-
-<body style="background-color:#a56ca7">
-
-
-<h1 class="text-center">TEST: CODA 2025 International Convention</h1>
-
-<!------------------------------------------------------------------------------------------------------- -->
-<! ### BUTTONS -->
-<!------------------------------------------------------------------------------------------------------- -->
-
-<div class="card card-body" style="background-color:#feeb10">
-
-      <div class="dropdown">
-
-      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">   
-      Filter
-      </button>
-
-      <span class="text-nowrap bd-highlight font-weight-bolder">
-      Map Media Key:
-      </span>
-
-      <button type= "button" class="btn border border-light btn-primary btn-all" onclick="actGo()  ;" >Play</button>
-      <button type= "button" class="btn border border-light btn-primary btn-all" onclick="actStop();" >Pause</button>
-
-       <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('01');"> 1a - Love</button>
-       <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('02');"> 2a - Museum</button>
-       <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('03');"> 3a - George</button>
-       <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('04');"> 4 - Rocky</button>
-       <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('05');"> 5 - Rocky</button>
-       <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('06');"> 6 - Rocky</button>
-       <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('07');"> 7a - Bell</button>
-       <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('08');"> 8a - Market</button>
-
-<!------------------------------------------------------------------------------------------------------- -->
-<div class="dropdown-menu customClassForDropDown" aria-labelledby="dropdownMenuButton">
-
-<div class="col-xs-12 col-sm-12 col-lg-12 col-xl-12">
-
-   <div class="card card-body" style="background-color:#fadadd">   
-   <div class="row mr-auto                 container-fluid">
-
-       <div class="col-xs-5 col-sm-3 col-lg-2 col-xl-1  container-fluid text-nowrap bd-highlight font-weight-bolder">
-       Subjects:
-       </div>
-
-       <div class="col-xs-7 col-sm-9 col-lg-10 col-xl-11 container-fluid">
-       <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('01');"> 1a - Love</button>
-       <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('02');"> 2a - Museum</button>
-       <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('03');"> 3a - George</button>
-       <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('04');"> 4 - Rocky</button>
-       <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('05');"> 5 - Rocky</button>
-       <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('06');"> 6 - Rocky</button>
-       <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('07');"> 7a - Bell</button>
-       <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('08');"> 8a - Market</button>
-       </div>
-
-   </div></div>
-</div>
-<!------------------------------------------------------------------------------------------------------- -->
-
-</div>
-</div>
-</div></div></div>
-
-<!------------------------------------------------------------------------------------------------------- -->
-<! ### ITEM MAP GLASS MANUAL d-block w-100 width:700px; -->
-<!------------------------------------------------------------------------------------------------------- -->
-<div class="col-xs-12 col-sm-12 col-lg-12 col-xl-12">
-   <div id="multiCollapseExample000038" class="cc" >
-   <div class="card card-body">   
-   <div class="row mr-auto                 container-fluid">
- 
-       <div class="col-xs-3 col-sm-3 col-lg-3 col-xl-3 container-fluid"    style="                                 padding:0px; margin:0px; border:5px solid #000000;">
-           <h2    id="vidNbr" class="container-fluid text-center "         style="                                 padding:0px; margin:0px; background-color:#fadadd">1a - Love<h2>
-
-           <div   id="vvv1"   class="vvv1 container-fluid pre-scrollable"  style="min-height: 390px;               padding:0px; margin:0px;">
-           <video id="video1" class="     container-fluid "                style="min-height: 100px; width=700px;  padding:0px; margin:0px"  src="videoCindy/01.mp4" controls onended="nextVideo();"> </video> 
-           </div>
-
-       </div>
-
-       <div class="mcol-xs-5 col-sm-5 col-lg-5 col-xl-5 container-fluid"    style="                                padding:0px; margin:0px; border:5px solid #000000;" >
-           <h2  id="vidNbrG"    class="     container-fluid text-center"    style="                                padding:0px; margin:0px; background-color:#fadadd" >1a - Love<h2>
-
-           <div id="mmm2"       class="mmm2 container-fluid pre-scrollable" style="min-height: 390px;              padding:0px; margin:0px;">
-           <div class="img-magnifier-container"                             style="                                padding:0px; margin:0px;">
-           <img id="myimageMAN" class="container-fluid "                    style="min-height: 100px; width:700px; "                         src="imagesCindy/20.jpg" alt="Map1"   >
-           </div>                   
-           </div>
-
-       </div>
-
-       <div class="col-xs-4 col-sm-4 col-lg-4 col-xl-4 container-fluid"     style="                                 padding:0px; margin:0px; border:5px solid #000000;">
-           <h2  id="vidNbrP"   class="container-fluid text-center"          style="                                 padding:0px; margin:0px; background-color:#fadadd" >1a - Love<h2>
-
-           <div id="vvv2"      class="vvv2 container-fluid pre-scrollable"  style="min-height: 390px;               padding:0px; margin:0px">
-           <img id="photo1"    class="     container-fluid"                 style="min-height: 100px; width:700px;  padding:0px; margin:0px" src="imagesCindy/01.jpg" alt="Photo1" > 
-           </div>
-
-       </div>
-
-
-
-
-   </div></div></div>
-</div>
-
-
-<!------------------------------------------------------------------------------------------------------- -->
-<! ### FOOTER -->
-<!------------------------------------------------------------------------------------------------------- -->
-<div class=col-xs-12 col-sm-12 col-lg-12 col-xl-12">
-   <div id="multiCollapseExample000038" class="cc" >
-   <div class="card card-body">   
-   <div class="row mr-auto                 container-fluid">
-       <div class="col-xs-12 col-sm-12 col-lg-12 col-xl-12 container-fluid">
-
-             ©CODA.ORG, ALL RIGHTS RESERVED. 
-             <a  style="background-color:#a56ca7" target="_blank" rel="noopener" href="https://coda.org/default/assets/File/CoDAFairUsePolicy-final.pdf">Fair Use </a>
-             <a target="_blank" href="https://coda.org/privacy/">              Privacy </a>
-             <a href="mailto:JohnnyM78.NJ@gmail.com"> 
-                      <span></span>
-                      Website designed by: Johnny M and Cindy R</a>
-
-             <a target="_blank" rel="noopener" href="https://coda.org/meeting/promises-for-recovery/">
-              special thanks to CODA meeting Promises For Recovery, Pine Beach NJ</a>
-
-
-
-       </div>
-   </div></div></div>
-</div>
-
-
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
-<script>
-
-/* 
-https://javascript.info/size-and-scroll
-*/
 
 </script>
 
@@ -439,7 +240,7 @@ https://javascript.info/size-and-scroll
        is done with HTML Video tag onended() function and the Title of the video.  
     */ 
    
-    var nVideo = document.getElementById("vidNbr").innerText;  console.log('ON:' + nVideo);
+    var nVideo = document.getElementById("titleV").innerText;  console.log('ON:' + nVideo);
 
     var itemImageJpg = '01';    var itemVideoMp4 = '01a';  var nVideoNxt = 'NONE';
 
@@ -468,25 +269,25 @@ https://javascript.info/size-and-scroll
 
     console.log('NXT:' +  itemImageJpg + ' ' + itemVideoMp4 + ' ON: ' + nVideo + ' NEXT: ' + nVideoNxt  );
       
-    document.getElementById("vidNbr").innerText = nVideoNxt;
-    document.getElementById("vidNbrG").innerText = nVideoNxt;
+    document.getElementById("titleV").innerText = nVideoNxt;
+    document.getElementById("titleM").innerText = nVideoNxt;
     
-    document.getElementById("vidNbrP").innerText = nVideoNxt;
-    document.getElementById("photo1").src="imagesCindy/" + itemImageJpg + ".jpg"; 
-    document.getElementById("video1").src="videoCindy/"  + itemVideoMp4 + ".mp4"; 
+    document.getElementById("titleP").innerText = nVideoNxt;
+    document.getElementById("imageP").src="imagesCindy/" + itemImageJpg + ".jpg"; 
+    document.getElementById("videoV").src="videoCindy/"  + itemVideoMp4 + ".mp4"; 
 
-    document.getElementById("video1").style.minHeight = "100px";
-    document.getElementById("video1").style.width     = "700px";
+    document.getElementById("videoV").style.minHeight = "100px";
+    document.getElementById("videoV").style.width     = "700px";
 
-    var es = document.getElementById("vvv1");
+    var es = document.getElementById("scrolV");
     es.scrollLeft = nScroll;
     es.scrollTop  = nScroll;
 
-    var esPic = document.getElementById("vvv2");
+    var esPic = document.getElementById("scrolP");
     esPic.scrollLeft = nPicScroll;
     esPic.scrollTop  = nPicScroll;
 
-    video = document.getElementById("video1");
+    video = document.getElementById("videoV");
     video.currentTime = 0;
     video.play();
 
@@ -494,151 +295,183 @@ https://javascript.info/size-and-scroll
 
 </script>
 
+
 <script type="text/javascript">
 
-function magnify(imgID, zoom) {
-  var img, glass, w, h, bw;
-  img = document.getElementById(imgID);
+    function inRange(x, min, max) {
+        return ((x-min)*(x-max) <= 0);
+    }
 
-  /* Create magnifier glass: */
-  glass = document.createElement("DIV");
-  glass.setAttribute("class", "img-magnifier-glass");
 
-  var arg1 = '"glass"';
-  glass.setAttribute("id", "magID");
-  glass.setAttribute("onclick", "getMouseXY(" + arg1 + ")");
+    function getMouseXY(tWhat) {
 
-  /* Insert magnifier glass: */
-  img.parentElement.insertBefore(glass, img);
+        console.log("tWhat:" + tWhat);
 
-  /* Set background properties for the magnifier glass: */
-  glass.style.backgroundImage = "url('" + img.src + "')";
-  glass.style.backgroundRepeat = "no-repeat";
-  glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";
-  bw = 3;
-  w = glass.offsetWidth / 2;
-  h = glass.offsetHeight / 2;
+        if ( tWhat == "sol" ) {
 
-  /*
-  glass.addEventListener("mousemove", moveMagnifier);
-  img.addEventListener("mousemove", moveMagnifier);
-  glass.addEventListener("touchmove", moveMagnifier);
-  img.addEventListener("touchmove", moveMagnifier);
-  */
+           var mapBKposRow = window.event.offsetY;
+           var mapBKposCol = window.event.offsetX;
+           console.log("CLICKsol:" + mapBKposRow + ', ' + mapBKposCol);
 
-  function moveMagnifier(e) {
-    /*
-    var pos, x, y;
-    e.preventDefault();
-    pos = getCursorPos(e);
-    x = pos.x;
-    y = pos.y;
-    if (x > img.width - (w / zoom)) {x = img.width - (w / zoom);}
-    if (x < w / zoom) {x = w / zoom;}
-    if (y > img.height - (h / zoom)) {y = img.height - (h / zoom);}
-    if (y < h / zoom) {y = h / zoom;}
-    glass.style.left = (x - w) + "px";
-    glass.style.top = (y - h) + "px";
-    glass.style.backgroundPosition = "-" + ((x * zoom) - w + bw) + "px -" + ((y * zoom) - h + bw) + "px";
-    */
-  }
+        };
 
-  function getCursorPos(e) {
-    var a, x = 0, y = 0;
-    e = e || window.event;
-    /* Get the x and y positions of the image: */
-    a = img.getBoundingClientRect();
-    /* Calculate the cursor's x and y coordinates, relative to the image: */
-    x = e.pageX - a.left;
-    y = e.pageY - a.top;
-    /* Consider any page scrolling: */
-    x = x - window.pageXOffset;
-    y = y - window.pageYOffset;
-    /* console.log("MAG CUR:" + x + " " + y ); */
-    return {x : x, y : y};
-  }
+
+        if ( tWhat == "map" ) {
+
+           var mapBKposRow = window.event.offsetY;
+           var mapBKposCol = window.event.offsetX;
+
+           var mapImage = document.getElementById("mapImage");
+           var mapImgW = mapImage.clientWidth;
+           var mapImgH = mapImage.clientHeight;
+
+           var mapOrgH = 738 ; var mapAdjH = Math.round( ( mapImgH / mapOrgH ) * 100 );  
+           var mapOrgW = 1090; var mapAdjW = Math.round( ( mapImgW / mapOrgW ) * 100 );  
+
+           var itemAtRow = 309; var itemAtCol = 415 ; var itemName = 'Main Street' ; var itemImageJpg = '14' ; itemVideoMp4 = '03' ;
+
+           var irPlus = 10 ; var irMinus = irPlus ;
+
+           var irRowMin = Math.round( (itemAtRow - irMinus ) * ( mapAdjH / 100 ) );  
+           var irRowMax = Math.round( (itemAtRow + irPlus  ) * ( mapAdjH / 100 ) );
+
+           var irColMin = Math.round( (itemAtCol - irMinus ) * ( mapAdjW / 100 ) );  
+           var irColMax = Math.round( (itemAtCol + irPlus  ) * ( mapAdjW / 100 ) );
+
+           var irRow = inRange(mapBKposRow, irRowMin , irRowMax );
+           var irCol = inRange(mapBKposCol, irColMin , irColMax ); 
+
+           if ( irRow & irCol ) { 
+              document.getElementById("imageP").src="imagesCindy/" + itemImageJpg + ".jpg"; 
+              document.getElementById("videoV").src="videoCindy/"  + itemVideoMp4 + ".mp4"; 
+
+              video = document.getElementById("videoV");
+              video.currentTime = 0;
+              video.play();
+
+           }
+
+           /*         
+           window.alert("CLICK:" + "At row: " +  mapBKposRow + " col: " + mapBKposCol  + " Map H: " + mapImgH   + " W: " + mapImgW + " " + irRow + irCol + " " + mapAdjW + " " + mapAdjH  + " " + irRowMin   + " " + irRowMax    ); 
+           */
+
+        };
+      
+        if ( tWhat == "glass" ) {
+
+           var mag = document.getElementById("glassM");
+           var magBKposRow =   Math.abs(parseInt(mag.style.backgroundPositionY));
+           var magBKposCol =   Math.abs(parseInt(mag.style.backgroundPositionX));
+           var magBKsize =   mag.style.backgroundSize;
+           console.log("MAGpos:" + magBKposRow+ " " + magBKposCol  + " " + magBKsize + " " + tWhat );
+
+        };
+
+    }
+</script>
+
+<script type="text/javascript">
+
+    /* ---------------------------------------------------------------------------------------------------- */
+    /* Mag Glass */
+    /* ---------------------------------------------------------------------------------------------------- */
+
+    function magnify(imgID, zoom) {
+      var img, glass, w, h, bw;
+      img   = document.getElementById(imgID);
+      glass = document.getElementById(glassM);
+
+      /* Set background properties for the magnifier glass: */
+      glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";
+
 }
 </script>
 
 <script>
-/* Execute the magnify function: */
-magnify("myimageMAN", 4);
-/* Specify the id of the image, and the strength of the magnifier glass: */
+
+    /* Execute the magnify function: */
+    magnify("imageM", 4);
+    /* Specify the id of the image, and the strength of the magnifier glass: */
+
 </script>
 
+
+<script type="text/javascript">
+
+    /* ---------------------------------------------------------------------------------------------------- */
+    /* Start Stop Video */
+    /* ---------------------------------------------------------------------------------------------------- */
+
+    function actStop() {
+      var vv = document.getElementById("videoV");
+      vv.pause();
+    }
+    function actGo() {
+      var vv = document.getElementById("videoV");
+      vv.play();
+    }
+
+</script>
+
+
 <script type="text/javascript"> /* Coords Resize function -------------------------------------*/
-function myButtonCoordFunction() {
 
-$( document ).ready(function() {
+    /* ---------------------------------------------------------------------------------------------------- */
+    /* Coords Resize */
+    /* ---------------------------------------------------------------------------------------------------- */
 
-  var image  =  $('#myimageMAN');
-  var imageW = `${image.width()}`
-  var imageH = `${image.height()}`
+    function reSizeElementsUserViewChanged() {
 
-  /* ------------------------------------------------------ */
-  /* Calc Coord boxes size positions depending on view port */
-  /* ------------------------------------------------------ */
+    $( document ).ready(function() {
 
-  var nTotalW    = Math.abs(parseInt(imageW));
-  var nTotalH    = Math.abs(parseInt(imageH));
+      var image  =  $('#imageM');
+      var imageW = `${image.width()}`
+      var imageH = `${image.height()}`
 
-  var nFix = Math.round(nTotalW / 100);
+      /* ------------------------------------------------------ */
+      /* Calc Coord boxes size positions depending on view port */
+      /* ------------------------------------------------------ */
 
-  var newWH = '600px';
-  switch(nFix) {
-    case 1: newWH =  '50px';  break;
-    case 2: newWH = '100px';  break;
-    case 3: newWH = '150px';  break;
-    case 4: newWH = '200px';  break;
-    default:              newWH = '100px'; 
-  }
+      var nTotalW    = Math.abs(parseInt(imageW));
+      var nTotalH    = Math.abs(parseInt(imageH));
 
-  console.log('MAP: ' + nTotalW + ' Fix: ' + nFix + ' NewW ' + newWH);
+      var nFix = Math.round(nTotalW / 100);
 
-  var MagMAN = document.getElementById("magID");
+      var newWH = '600px';
+      switch(nFix) {
+        case 1: newWH =  '50px';  break;
+        case 2: newWH = '100px';  break;
+        case 3: newWH = '150px';  break;
+        case 4: newWH = '200px';  break;
+        default:              newWH = '100px'; 
+      }
 
-  MagMAN.style.width  = newWH; 
-  MagMAN.style.height = newWH;
+      console.log('MAP: ' + nTotalW + ' Fix: ' + nFix + ' NewW ' + newWH);
 
+      var MagMAN = document.getElementById("glassM");
 
+      MagMAN.style.width  = newWH; 
+      MagMAN.style.height = newWH;
 
-})
-
-}
+    })
+    }
 
 </script>
 
 <script type="text/javascript">
 
-    function actStop() {
-    var vv = document.getElementById("video1");
-    vv.pause();
-    console.log("STOP");
-    }
+    /* ---------------------------------------------------------------------------------------------------- */
+    /* Resize Window (AUTO activated) */
+    /* ---------------------------------------------------------------------------------------------------- */
 
-    function actGo() {
-    var vv = document.getElementById("video1");
-    vv.play();
-    console.log("GO");
-    }
+    $( document ).ready(function() {
+      var resizeTimer;
+      $(window).on('resize', function(e) {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {    reSizeElementsUserViewChanged();    } , 250);
+      });
+    })
 
-
-</script>
-
-
-<script type="text/javascript"> /* Resize Window ------------------------------------------------*/
-
-$( document ).ready(function() {
-
-var resizeTimer;
-$(window).on('resize', function(e) {
-  clearTimeout(resizeTimer);
-  resizeTimer = setTimeout(function() {
-    myButtonCoordFunction();
-  }, 250);
-});
-
-})
 </script>
 
 </body>
