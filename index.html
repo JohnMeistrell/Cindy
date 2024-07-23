@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
 
-    <! version 9719 10am TEST off of (PROD Cindy 0718 Thr 07:30 PM VER 8)  -->
+    <! version 0723 - PROD  -->
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,8 +22,6 @@
      }
 
     .car1 { position: absolute; top: 300px; left: 300px; border: 1px green solid;  }
-    .car2 { position: absolute; top: 300px; left: 200px; border: 1px green solid;  }
-
 
     </style>
 
@@ -38,8 +36,8 @@
 
 <body style="background-color:#a56ca7">
 
-<h3 class="text-center">TEST 2025 CoDA Service Conference (CSC) October 5-9</h3>
-<h3 class="text-center">TEST International CoDA Convention (ICC) October 10-12</h3>
+<h3 class="text-center">2025 CoDA Service Conference (CSC) October 5-9</h3>
+<h3 class="text-center">International CoDA Convention (ICC) October 10-12</h3>
 
 <input type="hidden" id="keyOnButt" name="1a" value="1">
 
@@ -73,7 +71,7 @@
        <div class="col-xs-3 col-sm-3 col-lg-3 col-xl-3 container-fluid"     style="                                 padding:0px; margin:0px; border:5px solid #000000;">
            <h2    id="titleV" class="       container-fluid text-center"    style="                                 padding:0px; margin:0px; background-color:#fadadd">Love(a)<h2>
            <div   id="scrolV" class="scrolV container-fluid pre-scrollable" style="min-height: 390px;               padding:0px; margin:0px;">
-           <video id="videoV" class="       container-fluid "               style="min-height: 100px; width=700px;  padding:0px; margin:0px;" src="videoCindy/01.mp4" controls onended="nextVideo();"> </video> 
+           <video id="videoV" class="       container-fluid "               style="min-height: 100px; width=700px;  padding:0px; margin:0px;" src="videoCindy/01a.mp4" controls onended="nextVideo();"> </video> 
            </div>
        </div>
        <div class="mcol-xs-5 col-sm-5 col-lg-5 col-xl-5 container-fluid"    style="                                 padding:0px; margin:0px; border:5px solid #000000;" >
@@ -81,7 +79,7 @@
            <div id="scrolM" class="scrolM   container-fluid pre-scrollable" style="min-height: 390px;               padding:0px; margin:0px;">
            <div             class="img-magnifier-container"                 style="                                 padding:0px; margin:0px;">
  
-           <div id="glassM" class="img-magnifier-glass"                     onclick="getMouseXY('glass');" 
+           <div id="glassM" class="img-magnifier-glass"
                 style="background-image: url('imagesCindy/20.jpg');
                 background-repeat: no-repeat; background-size: 2680px 1804px; background-position: 55% 58%; 
                 top: 130px; left: 56%; width: 100px; height: 100px;">
@@ -121,7 +119,7 @@
                                                                                                    from CoDA meeting 
 
       <a target="_blank" href="https://coda.org/meeting/promises-for-recovery/"                   >Promises For Recovery</a>
-                                                                                                   , Pine Beach NJ (Ver1.0)
+                                                                                                   , Pine Beach NJ (Ver1.1)
       </div>
    </div>
 
@@ -143,35 +141,33 @@
        with the button list.
     */ 
 
-      /* console.log("GET: " + itemSetNN); */
-
       /* Map controls/settings/Order for each Video/Photo combo. Slider bars. Mag Glass location and what to magnify. */ 
-      const mapPointsObj = mapMediaInfo.map(([ nKey, nKeyV, nVideo, nPhoto, nMapRowLR, nMapColUD, nGlassRow, nGlassCol, nVidScrollRowLR, nVidScrollColUP, nMapScrollRowLR, nMapScrollColUP, nPicScrollRowLR, nPicScrollColUP, nCar, title]) => ({nKey, nKeyV, nVideo, nPhoto, nMapRowLR, nMapColUD, nGlassRow, nGlassCol, nVidScrollRowLR, nVidScrollColUP, nMapScrollRowLR, nMapScrollColUP, nPicScrollRowLR, nPicScrollColUP, nCar, title }));
+      const mapPointsObj = map1MediaInfo.map(([ 
+      nKey, nfKeyV, nVideo, nPhoto, nMapRowLR, nMapColUD, nGlassRowLR, nGlassColUD, nVidScrollRowLR, nVidScrollColUP, nMapScrollRowLR, nMapScrollColUP, nPicScrollRowLR, nPicScrollColUP, nCar, title]) => ({ 
+      nKey, nfKeyV, nVideo, nPhoto, nMapRowLR, nMapColUD, nGlassRowLR, nGlassColUD, nVidScrollRowLR, nVidScrollColUP, nMapScrollRowLR, nMapScrollColUP, nPicScrollRowLR, nPicScrollColUP, nCar, title }));
 
       switch(itemSetNN) {
-      case '01': nMapGlass = 1 ; console.log("Button Map set to: 1a"); break;
-      case '02': nMapGlass = 2 ; console.log("Button Map set to: 2a"); break;
-      case '03': nMapGlass = 3 ; console.log("Button Map set to: 3a"); break;
-      case '04': nMapGlass = 4 ; console.log("Button Map set to: 4") ; break;
-      case '05': nMapGlass = 5 ; console.log("Button Map set to: 5") ; break;
-      case '06': nMapGlass = 6 ; console.log("Button Map set to: 6") ; break;
-      case '07': nMapGlass = 7 ; console.log("Button Map set to: 7") ; break;
+      case '01': nMapGlass = 1 ; break;
+      case '02': nMapGlass = 2 ; break;
+      case '03': nMapGlass = 3 ; break;
+      case '04': nMapGlass = 4 ; break;
+      case '05': nMapGlass = 5 ; break;
+      case '06': nMapGlass = 6 ; break;
+      case '07': nMapGlass = 7 ; break;
       default:  console.log("Button Map is not availible.");
       }
 
-      itemImageJpg  = mapPointsObj[nMapGlass].nPhoto; /* 01 */
-      itemVideoMp4  = mapPointsObj[nMapGlass].nVideo; /* 01a */
-      row2nVideoNxt = mapPointsObj[nMapGlass].title;  /* 1a - Love */
+      nPhoto  = mapPointsObj[nMapGlass].nPhoto; /* 01 */
+      nVideo  = mapPointsObj[nMapGlass].nVideo; /* 01a */
+      title   = mapPointsObj[nMapGlass].title;  /* 1a - Love */
 
-      nnKeyV = mapPointsObj[nMapGlass].nKeyV;
+      nfKeyV = mapPointsObj[nMapGlass].nfKeyV;
 
-
-
-      document.getElementById("titleV").innerText = row2nVideoNxt;
-      document.getElementById("titleM").innerText = row2nVideoNxt;
-      document.getElementById("titleP").innerText = row2nVideoNxt;
-      document.getElementById("imageP").src="imagesCindy/" + itemImageJpg + ".jpg"; 
-      document.getElementById("videoV").src="videoCindy/"  + itemVideoMp4 + ".mp4"; 
+      document.getElementById("titleV").innerText = title;
+      document.getElementById("titleM").innerText = title;
+      document.getElementById("titleP").innerText = title;
+      document.getElementById("imageP").src="imagesCindy/" + nPhoto + ".jpg"; 
+      document.getElementById("videoV").src="videoCindy/"  + nVideo + ".mp4"; 
       document.getElementById("videoV").style.minHeight = "100px";
       document.getElementById("videoV").style.width     = "700px";
 
@@ -184,8 +180,8 @@
       var esMap  = document.getElementById("scrolM");
 
       /* Glass (What is magnified) */
-      var gR = mapPointsObj[nMapGlass].nGlassRow; 
-      var gC = mapPointsObj[nMapGlass].nGlassCol;
+      var gR = mapPointsObj[nMapGlass].nGlassRowLR; 
+      var gC = mapPointsObj[nMapGlass].nGlassColUD;
       eGlass.style.backgroundPosition = gR +' '+ gC;  /* What is magnified */
 
       /* Glass is where on map */
@@ -200,7 +196,6 @@
       esVid.scrollLeft = vLR; /* Works great */
       esVid.scrollTop  = vUD;
       esVid.scroll('200','300');
-      /* esVid.style.scrollTop += 200; */
 
       /* Pic scroll */
       var pLR = mapPointsObj[nMapGlass].nPicScrollRowLR; 
@@ -213,35 +208,17 @@
       var mUD = mapPointsObj[nMapGlass].nMapScrollColUP;
       esMap.scrollLeft = mLR;
       esMap.scrollTop  = mUD;
-      /*
-      esMap.scroll('200','300');
-      esMap.style.scrollTop += 100;
-      */
      
       /* Title */
       var gT = mapPointsObj[nMapGlass].title;
       /* ------------------------------------------------------------------- */
  
-
-
-      document.getElementById('keyOnButt').name  = gT;          /* 1a - Love */   /* itemVideoMp4 */
-      document.getElementById('keyOnButt').value = nnKeyV ;  /* 1 */
-
-
-/* NEED TO SET Hidden to V row key not button row key */
-
-
-
+      document.getElementById('keyOnButt').name  = gT;       /* 1a - Love */   /* nVideo */
+      document.getElementById('keyOnButt').value = nfKeyV ;  /* 1 */
 
       video = document.getElementById("videoV");
       video.currentTime = 0;
       video.play();
-
-      /*
-      es.scrollLeft = nScroll;
-      es.scrollTop  = nScroll;
-      alert(vLR +' '+ vUD +' '+ nScroll);
-      */
 
     } 
 
@@ -250,15 +227,10 @@
 
 <script type="text/javascript">
 
-/*
-BUTTON passes ( 01 ) finds key json ( 1 ) sets HIDDEN On & Next to name ( 1a - Love ) value ( 1 )  
-<input type="hidden" id="keyOnButt" name="1a" value="1">
-<input type="hidden" id="keyOnNext" name="1b" value="2">
-NEXT gets json key just finished to get next json key ( 2 ) 
-
-think only need to set 1st hidden since NEXT get the next one.
-
-*/
+    /*
+    BUTTON passes number to find array key and sets HIDDEN element to title ( 1a - Love ) value ( 1 ).
+    NEXT uses HIDDEN element to get an array to get next video, photo, posistion on map...        
+    */
 
 
     /* From VIDEO ON ENDED -------------------------------------------------------------------------------- */
@@ -272,44 +244,41 @@ think only need to set 1st hidden since NEXT get the next one.
     */ 
 
     /* Map controls/settings/Order for each Video/Photo combo. Slider bars. Mag Glass location and what to magnify. */ 
-    const mapOrderObj = mapVideoOrder.map(([ nKey, nKeyNext, nKeyButt, onVideo, onTitle,  nxtVideo, nxtImage, nxtTitle ]) => ({ nKey, nKeyNext, nKeyButt, onVideo, onTitle,  nxtVideo, nxtImage, nxtTitle  }));
+    const mapOrderObjRowA = map2VideoOrder.map(([ 
+       nKey, nKeyNext, nKeyButt, onVideo, onTitle, nxtVideo, nxtImage, nxtTitle ]) => ({ 
+       nKey, nKeyNext, nKeyButt, onVideo, onTitle, nxtVideo, nxtImage, nxtTitle  }));
    
     var nVideo = document.getElementById("titleV").innerText;  console.log('ON Title:                            ' + nVideo);
 
     /* Hidden on video photo key 1 - name 1a */
-    var hiddenCurrentKeyToJsonRow1 = document.getElementById("keyOnButt").value;   /* console.log('ONbutt:' +  hiddenCurrentKeyToJsonRow1  ); */ /* value="1" */
-    var hiddenCurrentTitleRow1     = document.getElementById("keyOnButt").name;    /* console.log('ONbutt:' +  hiddenCurrentTitleRow1); */ /* name="1a" */
-
-    console.log('Video current: '+' Hidden: K: '+  hiddenCurrentKeyToJsonRow1  +' Title: '+ hiddenCurrentTitleRow1);
+    var hiddenCurrentKeyToJsonRow1 = document.getElementById("keyOnButt").value;   
+    var hiddenCurrentTitleRow1     = document.getElementById("keyOnButt").name;    
 
     /* STEP 1: Hidden current on has key [1] connect JSON(1) Row [1] hiddenCurrentKeyToJsonRow1 (nKeyNext Col 2) to get JSON(2) Row [2] what to be shown in few secounds. */ 
 
-    var row1nVideoNxt    = mapOrderObj[hiddenCurrentKeyToJsonRow1].nxtTitle; /* 1a - Love */
-    var itemVideoMp4     = mapOrderObj[hiddenCurrentKeyToJsonRow1].nxtVideo; /* 01a */
-    var itemImageJpg     = mapOrderObj[hiddenCurrentKeyToJsonRow1].nxtImage; /* 01  */
-    var nKeyNextX        = mapOrderObj[hiddenCurrentKeyToJsonRow1].nKeyNext;  /* 2  */
-
-    console.log('Video current: ' +' JSON Row1: '+ hiddenCurrentKeyToJsonRow1 +' Title: '+ hiddenCurrentTitleRow1 +' JSON Row2 col2 nKeyNext: ' + nKeyNextX);
+    var nxtTitle = mapOrderObjRowA[hiddenCurrentKeyToJsonRow1].nxtTitle; /* 1a - Love */
+    var nVideo     = mapOrderObjRowA[hiddenCurrentKeyToJsonRow1].nxtVideo; /* 01a */
+    var nPhoto     = mapOrderObjRowA[hiddenCurrentKeyToJsonRow1].nxtImage; /* 01  */
+    var nKeyNext   = mapOrderObjRowA[hiddenCurrentKeyToJsonRow1].nKeyNext;  /* 2  */
 
     /* Next row to be shown in few seconds */
-    const r2MapOrderObj   = mapVideoOrder.map(([ bnKey, bnKeyNext, bnKeyButt, bonVideo, bonTitle,  bnxtVideo, bnxtImage, bnxtTitle ]) => ({ bnKey, bnKeyNext, bnKeyButt, bonVideo, bonTitle,  bnxtVideo, bnxtImage, bnxtTitle  }));
-    var bnKeyNextX       = r2MapOrderObj[nKeyNextX].bnKeyNext; /* 2  */
-    var r2nVideoNxtTitle = r2MapOrderObj[nKeyNextX].bnxtTitle; /* 1a - Love */
-    var bitemVideoMp4    = r2MapOrderObj[nKeyNextX].bnxtVideo; /* 01a */
-    var bitemImageJpg    = r2MapOrderObj[nKeyNextX].bnxtImage; /* 01  */
-    var bnKeyButtX       = r2MapOrderObj[nKeyNextX].bnKeyButt; /* 2  */
+    const mapOrderObjRowB   = map2VideoOrder.map(([ 
+       nKeyRowB, nKeyNextRowB, nKeyButtRowB, onVideoRowB, onTitleRowB,  nxtVideoRowB, nxtImageRowB, nxtTitleRowB  ]) => ({ 
+       nKeyRowB, nKeyNextRowB, nKeyButtRowB, onVideoRowB, onTitleRowB,  nxtVideoRowB, nxtImageRowB, nxtTitleRowB  }));
 
-    console.log('Video nextUp : '+' JSON Row2: '+ nKeyNextX                 +' Title: '+ row1nVideoNxt  +' JSON Butt col3 bnKeyButt: ' + bnKeyButtX);
+    var nVideoRowB    = mapOrderObjRowB[nKeyNext].nxtVideoRowB; /* 01a */
+    var nPhotoRowB    = mapOrderObjRowB[nKeyNext].nxtImageRowB; /* 01  */
+    var nKeyButtRowB  = mapOrderObjRowB[nKeyNext].nKeyButtRowB; /* 2  */
 
-    document.getElementById('keyOnButt').value = nKeyNextX ;
-    document.getElementById('keyOnButt').name  = row1nVideoNxt ;  
-
-    console.log('Video nextUp : '+' Hidden: K: '+  nKeyNextX   +' Title: '+ row1nVideoNxt +' ButtKey: '+ bnKeyButtX);
+    document.getElementById('keyOnButt').value = nKeyNext ;
+    document.getElementById('keyOnButt').name  = nxtTitle ;  
 
     /* Map controls/settings/Order for each Video/Photo combo. Slider bars. Mag Glass location and what to magnify. */ 
-    const mapPointsObj = mapMediaInfo.map(([ nKey, nKeyV, nVideo, nPhoto, nMapRowLR, nMapColUD, nGlassRow, nGlassCol, nVidScrollRowLR, nVidScrollColUP, nMapScrollRowLR, nMapScrollColUP, nPicScrollRowLR, nPicScrollColUP, nCar, title]) => ({nKey, nKeyV, nVideo, nPhoto, nMapRowLR, nMapColUD, nGlassRow, nGlassCol, nVidScrollRowLR, nVidScrollColUP, nMapScrollRowLR, nMapScrollColUP, nPicScrollRowLR, nPicScrollColUP, nCar, title }));
+    const mapPointsObj = map1MediaInfo.map(([ 
+    nKey, nfKeyV, nVideo, nPhoto, nMapRowLR, nMapColUD, nGlassRowLR, nGlassColUD, nVidScrollRowLR, nVidScrollColUP, nMapScrollRowLR, nMapScrollColUP, nPicScrollRowLR, nPicScrollColUP, nCar, title]) => ({ 
+    nKey, nfKeyV, nVideo, nPhoto, nMapRowLR, nMapColUD, nGlassRowLR, nGlassColUD, nVidScrollRowLR, nVidScrollColUP, nMapScrollRowLR, nMapScrollColUP, nPicScrollRowLR, nPicScrollColUP, nCar, title }));
 
-    var nMapGlass = bnKeyButtX;
+    var nMapGlass = nKeyButtRowB;
 
 
     /* ------------------------------------------------------------------- */
@@ -319,8 +288,8 @@ think only need to set 1st hidden since NEXT get the next one.
       var esMap  = document.getElementById("scrolM");
 
       /* Glass (What is magnified) */
-      var gR = mapPointsObj[nMapGlass].nGlassRow; 
-      var gC = mapPointsObj[nMapGlass].nGlassCol;
+      var gR = mapPointsObj[nMapGlass].nGlassRowLR; 
+      var gC = mapPointsObj[nMapGlass].nGlassColUD;
       eGlass.style.backgroundPosition = gR +' '+ gC;  /* What is magnified */
 
       /* Glass is where on map */
@@ -335,7 +304,6 @@ think only need to set 1st hidden since NEXT get the next one.
       esVid.scrollLeft = vLR; /* Works great */
       esVid.scrollTop  = vUD;
       esVid.scroll('200','300');
-      /* esVid.style.scrollTop += 200; */
 
       /* Pic scroll */
       var pLR = mapPointsObj[nMapGlass].nPicScrollRowLR; 
@@ -348,40 +316,20 @@ think only need to set 1st hidden since NEXT get the next one.
       var mUD = mapPointsObj[nMapGlass].nMapScrollColUP;
       esMap.scrollLeft = mLR;
       esMap.scrollTop  = mUD;
-      /*
-      esMap.scroll('200','300');
-      esMap.style.scrollTop += 100;
-      */
      
       /* Title */
       var gT = mapPointsObj[nMapGlass].title;
     /* ------------------------------------------------------------------- */
 
+    document.getElementById("titleV").innerText = nxtTitle;
+    document.getElementById("titleM").innerText = nxtTitle;    
+    document.getElementById("titleP").innerText = nxtTitle;
 
-
-    /* console.log('NXT:' +  itemImageJpg + ' ' + itemVideoMp4 + ' ON: ' + nVideo + ' NEXT: ' + row2nVideoNxt  ); */
-      
-    document.getElementById("titleV").innerText = row1nVideoNxt;
-    document.getElementById("titleM").innerText = row1nVideoNxt;    
-    document.getElementById("titleP").innerText = row1nVideoNxt;
-
-    document.getElementById("imageP").src="imagesCindy/" + itemImageJpg + ".jpg"; 
-    document.getElementById("videoV").src="videoCindy/"  + itemVideoMp4 + ".mp4"; 
+    document.getElementById("imageP").src="imagesCindy/" + nPhoto + ".jpg"; 
+    document.getElementById("videoV").src="videoCindy/"  + nVideo + ".mp4"; 
 
     document.getElementById("videoV").style.minHeight = "100px";
     document.getElementById("videoV").style.width     = "700px";
-
-
-    /****
-    var es = document.getElementById("scrolV");
-    es.scrollLeft = nScroll;
-    es.scrollTop  = nScroll;
-
-    var esPic = document.getElementById("scrolP");
-    esPic.scrollLeft = nPicScroll;
-    esPic.scrollTop  = nPicScroll;
-    ****/
-
 
     video = document.getElementById("videoV");
     video.currentTime = 0;
@@ -389,81 +337,6 @@ think only need to set 1st hidden since NEXT get the next one.
 
     }
 
-</script>
-
-
-<script type="text/javascript">
-
-    function inRange(x, min, max) {
-        return ((x-min)*(x-max) <= 0);
-    }
-
-
-    function getMouseXY(tWhat) {
-
-        /* console.log("tWhat:" + tWhat); */
-
-        if ( tWhat == "sol" ) {
-
-           var mapBKposRow = window.event.offsetY;
-           var mapBKposCol = window.event.offsetX;
-           /* console.log("CLICKsol:" + mapBKposRow + ', ' + mapBKposCol); */
-
-        };
-
-
-        if ( tWhat == "map" ) {
-
-           var mapBKposRow = window.event.offsetY;
-           var mapBKposCol = window.event.offsetX;
-
-           var mapImage = document.getElementById("mapImage");
-           var mapImgW = mapImage.clientWidth;
-           var mapImgH = mapImage.clientHeight;
-
-           var mapOrgH = 738 ; var mapAdjH = Math.round( ( mapImgH / mapOrgH ) * 100 );  
-           var mapOrgW = 1090; var mapAdjW = Math.round( ( mapImgW / mapOrgW ) * 100 );  
-
-           var itemAtRow = 309; var itemAtCol = 415 ; var itemName = 'Main Street' ; var itemImageJpg = '14' ; itemVideoMp4 = '03' ;
-
-           var irPlus = 10 ; var irMinus = irPlus ;
-
-           var irRowMin = Math.round( (itemAtRow - irMinus ) * ( mapAdjH / 100 ) );  
-           var irRowMax = Math.round( (itemAtRow + irPlus  ) * ( mapAdjH / 100 ) );
-
-           var irColMin = Math.round( (itemAtCol - irMinus ) * ( mapAdjW / 100 ) );  
-           var irColMax = Math.round( (itemAtCol + irPlus  ) * ( mapAdjW / 100 ) );
-
-           var irRow = inRange(mapBKposRow, irRowMin , irRowMax );
-           var irCol = inRange(mapBKposCol, irColMin , irColMax ); 
-
-           if ( irRow & irCol ) { 
-              document.getElementById("imageP").src="imagesCindy/" + itemImageJpg + ".jpg"; 
-              document.getElementById("videoV").src="videoCindy/"  + itemVideoMp4 + ".mp4"; 
-
-              video = document.getElementById("videoV");
-              video.currentTime = 0;
-              video.play();
-
-           }
-
-           /*         
-           window.alert("CLICK:" + "At row: " +  mapBKposRow + " col: " + mapBKposCol  + " Map H: " + mapImgH   + " W: " + mapImgW + " " + irRow + irCol + " " + mapAdjW + " " + mapAdjH  + " " + irRowMin   + " " + irRowMax    ); 
-           */
-
-        };
-      
-        if ( tWhat == "glass" ) {
-
-           var mag = document.getElementById("glassM");
-           var magBKposRow =   Math.abs(parseInt(mag.style.backgroundPositionY));
-           var magBKposCol =   Math.abs(parseInt(mag.style.backgroundPositionX));
-           var magBKsize =   mag.style.backgroundSize;
-           /* console.log("MAGpos:" + magBKposRow+ " " + magBKposCol  + " " + magBKsize + " " + tWhat ); */
-
-        };
-
-    }
 </script>
 
 <script type="text/javascript">
@@ -477,7 +350,6 @@ think only need to set 1st hidden since NEXT get the next one.
       img   = document.getElementById(imgID);
       glass = document.getElementById(glassM);
 
-
       if( glass != null ){
             /* Set background properties for the magnifier glass: */
             glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";            
@@ -490,9 +362,8 @@ think only need to set 1st hidden since NEXT get the next one.
 
 <script>
 
-    /* Execute the magnify function: */
+    /* Execute the magnify function: Stringth of 1 2 3 4 ... */
     magnify("imageM", 4);
-    /* Specify the id of the image, and the strength of the magnifier glass: */
 
 </script>
 
