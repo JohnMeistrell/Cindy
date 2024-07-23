@@ -1,5 +1,5 @@
 /*  version 0718 Thr 07:30 PM VER 8 */
-const mapMediaInfo = [
+const map1MediaInfo = [
 /*                                     LeftRight UpDown      LeftRight    UpDown       LeftRight   UpDown      LeftRight    UpDown       LeftRight    UpDown     */
 ['Key' , 'KeyV' , 'Video#', 'Photo#', 'WhereR', 'WhereCpx', 'WhatMagR%', 'WhatMagC%', 'VidRowLR', 'VidColUP', 'MapRowLR' , 'MapColUD' , 'PicRowLR%', 'PicColUPpx', 'Car' , 'Title'     ],  
 ['1'   ,  '1'   , '01a'   , '01'    , '56%'   , '130px'   , '55%'      , '58%'      , '300'     , '200'     ,   '5'      ,   '7'      ,  '80'      , '180'       , '21a' , 'Love (a)'  ], 
@@ -15,7 +15,7 @@ const mapMediaInfo = [
 ['8'   ,  '5'   , '07a'   , '07b'   , '89%'   , '175px'   , '77.2%'    , '64.6%'    , '50%'     , '80px'    , '200'      ,   '7'      ,  '80'      , '120'       , '21r' , 'Bell(a)'   ] 
 ];
 
-const mapVideoOrder = [
+const map2VideoOrder = [
 ['Key', 'KeyNext' , 'KeyButt' , 'On#' , 'OnTitle'       ,'NextVid', 'NextImg'  , 'NextTitle'   ],
 
 ['1'  , '2'       , '1'       , '1a'  , 'Love'          , '01b'    , '01'     , 'Love(b)'      ],
