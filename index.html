@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
 
-    <! version 0723 - PROD  -->
+    <! version 0807 5pm GOOD CLEAR -->
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -119,7 +119,7 @@
                                                                                                    from CoDA meeting 
 
       <a target="_blank" href="https://coda.org/meeting/promises-for-recovery/"                   >Promises For Recovery</a>
-                                                                                                   , Pine Beach NJ (Ver1.1)
+                                                                                                   , Pine Beach NJ (Ver1.2)
       </div>
    </div>
 
@@ -132,14 +132,14 @@
 
 <script type="text/javascript">
 
-    /* ---------------------------------------------------------------------------------------------------- */
-    function getItem(itemSetNN) {   /* FROM BUTTON LIST */
-    /* ---------------------------------------------------------------------------------------------------- */
-    /*
+    /* ---------------------------------------------------------------------------------------------------- *\
+       Button list. Play one user selected:
        List of buttons for each map media set shows the photo and the first video in each set if video was split (a b c...) because 
        GitHub max size limit. The selected shows users the Title, Photo, and video. Var itemSetNN is passed from the HTML DIV container
        with the button list.
-    */ 
+    \* ---------------------------------------------------------------------------------------------------- */
+
+    function getItem(itemSetNN) {
 
       /* Map controls/settings/Order for each Video/Photo combo. Slider bars. Mag Glass location and what to magnify. */ 
       const mapPointsObj = map1MediaInfo.map(([ 
@@ -171,48 +171,11 @@
       document.getElementById("videoV").style.minHeight = "100px";
       document.getElementById("videoV").style.width     = "700px";
 
+      adjust_Video_Map_Glass_Photo(nMapGlass,mapPointsObj); 
 
-
-      /* ------------------------------------------------------------------- */
-      var eGlass = document.getElementById("glassM");
-      var esVid  = document.getElementById("scrolV");
-      var esPic  = document.getElementById("scrolP");
-      var esMap  = document.getElementById("scrolM");
-
-      /* Glass (What is magnified) */
-      var gR = mapPointsObj[nMapGlass].nGlassRowLR; 
-      var gC = mapPointsObj[nMapGlass].nGlassColUD;
-      eGlass.style.backgroundPosition = gR +' '+ gC;  /* What is magnified */
-
-      /* Glass is where on map */
-      var magWhatR = mapPointsObj[nMapGlass].nMapRowLR; 
-      var magWhatC = mapPointsObj[nMapGlass].nMapColUD;
-      eGlass.style.top  = magWhatC;
-      eGlass.style.left = magWhatR;
-
-      /* Video scroll */
-      var vLR = mapPointsObj[nMapGlass].nVidScrollRowLR; 
-      var vUD = mapPointsObj[nMapGlass].nVidScrollColUP;
-      esVid.scrollLeft = vLR; /* Works great */
-      esVid.scrollTop  = vUD;
-      esVid.scroll('200','300');
-
-      /* Pic scroll */
-      var pLR = mapPointsObj[nMapGlass].nPicScrollRowLR; 
-      var pUD = mapPointsObj[nMapGlass].nPicScrollColUP;
-      esPic.scrollLeft = pLR;
-      esPic.scrollTop  = pUD;
-
-      /* Map scroll */
-      var mLR = mapPointsObj[nMapGlass].nMapScrollRowLR; 
-      var mUD = mapPointsObj[nMapGlass].nMapScrollColUP;
-      esMap.scrollLeft = mLR;
-      esMap.scrollTop  = mUD;
-     
       /* Title */
       var gT = mapPointsObj[nMapGlass].title;
-      /* ------------------------------------------------------------------- */
- 
+
       document.getElementById('keyOnButt').name  = gT;       /* 1a - Love */   /* nVideo */
       document.getElementById('keyOnButt').value = nfKeyV ;  /* 1 */
 
@@ -227,22 +190,17 @@
 
 <script type="text/javascript">
 
-    /*
-    BUTTON passes number to find array key and sets HIDDEN element to title ( 1a - Love ) value ( 1 ).
-    NEXT uses HIDDEN element to get an array to get next video, photo, posistion on map...        
-    */
-
-
-    /* From VIDEO ON ENDED -------------------------------------------------------------------------------- */
-
-    /* ---------------------------------------------------------------------------------------------------- */
-    function nextVideo() {   /* ### PLAY LIST VIDEOS                                                        */ 
-    /* ---------------------------------------------------------------------------------------------------- */
-    /* 
+    /* ---------------------------------------------------------------------------------------------------- *\
+       VIDEO ended. Play next one:
        Each video plays in order When a video is done (at the end), the next video automatically plays. This 
-       is done with HTML Video tag onended() function and the Title of the video.  
-    */ 
+       is done with HTML Video tag onended() function and the Title of the video. 
 
+       BUTTON passes number to find array key and sets HIDDEN element to title ( 1a - Love ) value ( 1 ).
+       NEXT uses HIDDEN element to get an array to get next video, photo, posistion on map...    
+    \* ---------------------------------------------------------------------------------------------------- */
+
+    function nextVideo() {   
+ 
     /* Map controls/settings/Order for each Video/Photo combo. Slider bars. Mag Glass location and what to magnify. */ 
     const mapOrderObjRowA = map2VideoOrder.map(([ 
        nKey, nKeyNext, nKeyButt, onVideo, onTitle, nxtVideo, nxtImage, nxtTitle ]) => ({ 
@@ -279,9 +237,36 @@
     nKey, nfKeyV, nVideo, nPhoto, nMapRowLR, nMapColUD, nGlassRowLR, nGlassColUD, nVidScrollRowLR, nVidScrollColUP, nMapScrollRowLR, nMapScrollColUP, nPicScrollRowLR, nPicScrollColUP, nCar, title }));
 
     var nMapGlass = nKeyButtRowB;
+    adjust_Video_Map_Glass_Photo(nMapGlass,mapPointsObj); 
 
+    document.getElementById("titleV").innerText = nxtTitle;
+    document.getElementById("titleM").innerText = nxtTitle;    
+    document.getElementById("titleP").innerText = nxtTitle;
 
-    /* ------------------------------------------------------------------- */
+    document.getElementById("imageP").src="imagesCindy/" + nPhoto + ".jpg"; 
+    document.getElementById("videoV").src="videoCindy/"  + nVideo + ".mp4"; 
+
+    document.getElementById("videoV").style.minHeight = "100px";
+    document.getElementById("videoV").style.width     = "700px";
+
+    video = document.getElementById("videoV");
+    video.currentTime = 0;
+    video.play();
+
+    }
+
+</script>
+
+<script type="text/javascript">
+
+    /* ---------------------------------------------------------------------------------------------------- *\
+       Adjust Video Map Glass Photo:
+       Scroll video and photo to best spot (up/down left/right). Some videos have black boarder on both 
+       sides (Center theses). Move magnifying glass on map to location where video and photos are from.     
+    \* ---------------------------------------------------------------------------------------------------- */
+
+    function adjust_Video_Map_Glass_Photo(nMapGlass,mapPointsObj) {   
+
       var eGlass = document.getElementById("glassM");
       var esVid  = document.getElementById("scrolV");
       var esPic  = document.getElementById("scrolP");
@@ -319,33 +304,14 @@
      
       /* Title */
       var gT = mapPointsObj[nMapGlass].title;
-    /* ------------------------------------------------------------------- */
-
-    document.getElementById("titleV").innerText = nxtTitle;
-    document.getElementById("titleM").innerText = nxtTitle;    
-    document.getElementById("titleP").innerText = nxtTitle;
-
-    document.getElementById("imageP").src="imagesCindy/" + nPhoto + ".jpg"; 
-    document.getElementById("videoV").src="videoCindy/"  + nVideo + ".mp4"; 
-
-    document.getElementById("videoV").style.minHeight = "100px";
-    document.getElementById("videoV").style.width     = "700px";
-
-    video = document.getElementById("videoV");
-    video.currentTime = 0;
-    video.play();
 
     }
 
-</script>
+    /* ---------------------------------------------------------------------------------------------------- *\
+       Adjust Magnify Glass Strength. 2x 3x ...
+    \* ---------------------------------------------------------------------------------------------------- */
 
-<script type="text/javascript">
-
-    /* ---------------------------------------------------------------------------------------------------- */
-    /* Mag Glass */
-    /* ---------------------------------------------------------------------------------------------------- */
-
-    function magnify(imgID, zoom) {
+    function magnifyStrength(imgID, zoom) {
       var img, glass, w, h, bw;
       img   = document.getElementById(imgID);
       glass = document.getElementById(glassM);
@@ -354,25 +320,21 @@
             /* Set background properties for the magnifier glass: */
             glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";            
       } else {
-            console.log("NULL: magnify() glass = document.getElementById(glassM)");
+            console.log("NULL: magnifyStrength() glass = document.getElementById(glassM)");
       }
 
-}
-</script>
+    }
 
-<script>
-
-    /* Execute the magnify function: Stringth of 1 2 3 4 ... */
-    magnify("imageM", 4);
+    /* Execute the magnify function: Stringth of 1x 2x 3x 4x ... */
+    magnifyStrength("imageM", 4);
 
 </script>
-
 
 <script type="text/javascript">
 
-    /* ---------------------------------------------------------------------------------------------------- */
-    /* Start Stop Video */
-    /* ---------------------------------------------------------------------------------------------------- */
+    /* ---------------------------------------------------------------------------------------------------- *\
+       Buttons: Start Stop Video
+    \* ---------------------------------------------------------------------------------------------------- */
 
     function actStop() {
       var vv = document.getElementById("videoV");
@@ -385,12 +347,11 @@
 
 </script>
 
-
 <script type="text/javascript"> /* Coords Resize function -------------------------------------*/
 
-    /* ---------------------------------------------------------------------------------------------------- */
-    /* Coords Resize */
-    /* ---------------------------------------------------------------------------------------------------- */
+    /* ---------------------------------------------------------------------------------------------------- *\
+       Resize Video Map Glass Photo to users device. 
+    \* ---------------------------------------------------------------------------------------------------- */
 
     function reSizeElementsUserViewChanged() {
 
@@ -432,9 +393,9 @@
 
 <script type="text/javascript">
 
-    /* ---------------------------------------------------------------------------------------------------- */
-    /* Resize Window (AUTO activated) */
-    /* ---------------------------------------------------------------------------------------------------- */
+    /* ---------------------------------------------------------------------------------------------------- *\
+       Resize Window (AUTO activated)
+    \* ---------------------------------------------------------------------------------------------------- */
 
     $( document ).ready(function() {
       var resizeTimer;
